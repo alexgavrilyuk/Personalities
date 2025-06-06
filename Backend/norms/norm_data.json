@@ -1,0 +1,120 @@
+{
+  "norms": {
+    "Extraversion": {
+      "general_population": {
+        "mean": 50.0,
+        "std_dev": 15.0,
+        "percentiles": {
+          "5": 25.5,
+          "10": 30.8,
+          "20": 37.2,
+          "30": 41.6,
+          "40": 45.2,
+          "50": 50.0,
+          "60": 54.8,
+          "70": 58.4,
+          "80": 62.8,
+          "90": 69.2,
+          "95": 74.5
+        },
+        "sample_size": 10523
+      }
+    },
+    "Agreeableness": {
+      "general_population": {
+        "mean": 50.0,
+        "std_dev": 15.0,
+        "percentiles": {
+          "5": 25.5,
+          "10": 30.8,
+          "20": 37.2,
+          "30": 41.6,
+          "40": 45.2,
+          "50": 50.0,
+          "60": 54.8,
+          "70": 58.4,
+          "80": 62.8,
+          "90": 69.2,
+          "95": 74.5
+        },
+        "sample_size": 10523
+      }
+    },
+    "Conscientiousness": {
+      "general_population": {
+        "mean": 50.0,
+        "std_dev": 15.0,
+        "percentiles": {
+          "5": 25.5,
+          "10": 30.8,
+          "20": 37.2,
+          "30": 41.6,
+          "40": 45.2,
+          "50": 50.0,
+          "60": 54.8,
+          "70": 58.4,
+          "80": 62.8,
+          "90": 69.2,
+          "95": 74.5
+        },
+        "sample_size": 10523
+      }
+    },
+    "Neuroticism": {
+      "general_population": {
+        "mean": 50.0,
+        "std_dev": 15.0,
+        "percentiles": {
+          "5": 25.5,
+          "10": 30.8,
+          "20": 37.2,
+          "30": 41.6,
+          "40": 45.2,
+          "50": 50.0,
+          "60": 54.8,
+          "70": 58.4,
+          "80": 62.8,
+          "90": 69.2,
+          "95": 74.5
+        },
+        "sample_size": 10523
+      }
+    },
+    "Openness": {
+      "general_population": {
+        "mean": 50.0,
+        "std_dev": 15.0,
+        "percentiles": {
+          "5": 25.5,
+          "10": 30.8,
+          "20": 37.2,
+          "30": 41.6,
+          "40": 45.2,
+          "50": 50.0,
+          "60": 54.8,
+          "70": 58.4,
+          "80": 62.8,
+          "90": 69.2,
+          "95": 74.5
+        },
+        "sample_size": 10523
+      }
+    }
+  },
+  "irt_parameters": {
+    "graded_response_model": {
+      "discrimination_range": [0.5, 2.5],
+      "threshold_range": [-3.0, 3.0],
+      "categories": 7
+    }
+  },
+  "cluster_models": {
+    "optimal_clusters": 4,
+    "cluster_descriptions": [
+      "Resilient: High on all Big Five dimensions except Neuroticism",
+      "Overcontrolled: High Neuroticism, low Extraversion",
+      "Undercontrolled: Low Agreeableness and Conscientiousness",
+      "Average: Near mean on all dimensions"
+    ]
+  }
+}

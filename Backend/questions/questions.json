@@ -1,0 +1,2874 @@
+{
+  "questions": [
+    {
+      "id": "BF_E_001",
+      "text": "I warm up quickly to others",
+      "dimension": "Extraversion",
+      "facet": "Warmth",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.72,
+        "Agreeableness": 0.25,
+        "Conscientiousness": 0.00,
+        "Neuroticism": -0.10,
+        "Openness": 0.08
+      }
+    },
+    {
+      "id": "BF_E_002",
+      "text": "I keep others at a distance",
+      "dimension": "Extraversion",
+      "facet": "Warmth",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.68,
+        "Agreeableness": -0.20,
+        "Conscientiousness": 0.00,
+        "Neuroticism": 0.15,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_E_003",
+      "text": "I make friends easily",
+      "dimension": "Extraversion",
+      "facet": "Warmth",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.75,
+        "Agreeableness": 0.20,
+        "Conscientiousness": 0.00,
+        "Neuroticism": -0.12,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_E_004",
+      "text": "I am hard to get to know",
+      "dimension": "Extraversion",
+      "facet": "Warmth",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.70,
+        "Agreeableness": -0.15,
+        "Conscientiousness": 0.05,
+        "Neuroticism": 0.20,
+        "Openness": -0.08
+      }
+    },
+    {
+      "id": "BF_E_005",
+      "text": "I enjoy being part of a crowd",
+      "dimension": "Extraversion",
+      "facet": "Gregariousness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.78,
+        "Agreeableness": 0.10,
+        "Conscientiousness": -0.05,
+        "Neuroticism": -0.15,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_E_006",
+      "text": "I prefer to be alone",
+      "dimension": "Extraversion",
+      "facet": "Gregariousness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.80,
+        "Agreeableness": -0.05,
+        "Conscientiousness": 0.10,
+        "Neuroticism": 0.10,
+        "Openness": 0.00
+      }
+    },
+    {
+      "id": "BF_E_007",
+      "text": "I seek out social situations",
+      "dimension": "Extraversion",
+      "facet": "Gregariousness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.82,
+        "Agreeableness": 0.08,
+        "Conscientiousness": -0.02,
+        "Neuroticism": -0.18,
+        "Openness": 0.12
+      }
+    },
+    {
+      "id": "BF_E_008",
+      "text": "I avoid crowds",
+      "dimension": "Extraversion",
+      "facet": "Gregariousness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.76,
+        "Agreeableness": -0.02,
+        "Conscientiousness": 0.08,
+        "Neuroticism": 0.22,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_E_009",
+      "text": "I take charge of situations",
+      "dimension": "Extraversion",
+      "facet": "Assertiveness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.65,
+        "Agreeableness": -0.15,
+        "Conscientiousness": 0.25,
+        "Neuroticism": -0.20,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_E_010",
+      "text": "I wait for others to lead the way",
+      "dimension": "Extraversion",
+      "facet": "Assertiveness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.60,
+        "Agreeableness": 0.20,
+        "Conscientiousness": -0.15,
+        "Neuroticism": 0.25,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_E_011",
+      "text": "I express my opinions forcefully",
+      "dimension": "Extraversion",
+      "facet": "Assertiveness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.58,
+        "Agreeableness": -0.30,
+        "Conscientiousness": 0.05,
+        "Neuroticism": -0.10,
+        "Openness": 0.15
+      }
+    },
+    {
+      "id": "BF_E_012",
+      "text": "I hold back my opinions",
+      "dimension": "Extraversion",
+      "facet": "Assertiveness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.62,
+        "Agreeableness": 0.15,
+        "Conscientiousness": -0.05,
+        "Neuroticism": 0.30,
+        "Openness": -0.12
+      }
+    },
+    {
+      "id": "BF_E_013",
+      "text": "I am always busy",
+      "dimension": "Extraversion",
+      "facet": "Activity",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.55,
+        "Agreeableness": -0.05,
+        "Conscientiousness": 0.35,
+        "Neuroticism": 0.10,
+        "Openness": 0.08
+      }
+    },
+    {
+      "id": "BF_E_014",
+      "text": "I like to take it easy",
+      "dimension": "Extraversion",
+      "facet": "Activity",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.50,
+        "Agreeableness": 0.10,
+        "Conscientiousness": -0.30,
+        "Neuroticism": -0.05,
+        "Openness": 0.00
+      }
+    },
+    {
+      "id": "BF_E_015",
+      "text": "I am always on the go",
+      "dimension": "Extraversion",
+      "facet": "Activity",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.60,
+        "Agreeableness": -0.02,
+        "Conscientiousness": 0.30,
+        "Neuroticism": 0.05,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_E_016",
+      "text": "I prefer a slow pace of life",
+      "dimension": "Extraversion",
+      "facet": "Activity",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.52,
+        "Agreeableness": 0.08,
+        "Conscientiousness": -0.20,
+        "Neuroticism": -0.10,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_E_017",
+      "text": "I love excitement and adventure",
+      "dimension": "Extraversion",
+      "facet": "Excitement-Seeking",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.68,
+        "Agreeableness": -0.10,
+        "Conscientiousness": -0.25,
+        "Neuroticism": -0.05,
+        "Openness": 0.45
+      }
+    },
+    {
+      "id": "BF_E_018",
+      "text": "I dislike loud environments",
+      "dimension": "Extraversion",
+      "facet": "Excitement-Seeking",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.55,
+        "Agreeableness": 0.05,
+        "Conscientiousness": 0.20,
+        "Neuroticism": 0.15,
+        "Openness": -0.20
+      }
+    },
+    {
+      "id": "BF_E_019",
+      "text": "I seek thrills",
+      "dimension": "Extraversion",
+      "facet": "Excitement-Seeking",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.65,
+        "Agreeableness": -0.15,
+        "Conscientiousness": -0.30,
+        "Neuroticism": 0.00,
+        "Openness": 0.40
+      }
+    },
+    {
+      "id": "BF_E_020",
+      "text": "I avoid dangerous situations",
+      "dimension": "Extraversion",
+      "facet": "Excitement-Seeking",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.45,
+        "Agreeableness": 0.10,
+        "Conscientiousness": 0.35,
+        "Neuroticism": 0.20,
+        "Openness": -0.25
+      }
+    },
+    {
+      "id": "BF_E_021",
+      "text": "I radiate joy",
+      "dimension": "Extraversion",
+      "facet": "Positive Emotions",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.70,
+        "Agreeableness": 0.30,
+        "Conscientiousness": 0.10,
+        "Neuroticism": -0.40,
+        "Openness": 0.15
+      }
+    },
+    {
+      "id": "BF_E_022",
+      "text": "I rarely feel happy",
+      "dimension": "Extraversion",
+      "facet": "Positive Emotions",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.60,
+        "Agreeableness": -0.20,
+        "Conscientiousness": -0.15,
+        "Neuroticism": 0.55,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_E_023",
+      "text": "I have a lot of fun",
+      "dimension": "Extraversion",
+      "facet": "Positive Emotions",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.72,
+        "Agreeableness": 0.15,
+        "Conscientiousness": -0.10,
+        "Neuroticism": -0.35,
+        "Openness": 0.20
+      }
+    },
+    {
+      "id": "BF_E_024",
+      "text": "I seldom joke around",
+      "dimension": "Extraversion",
+      "facet": "Positive Emotions",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.65,
+        "Agreeableness": -0.10,
+        "Conscientiousness": 0.20,
+        "Neuroticism": 0.15,
+        "Openness": -0.25
+      }
+    },
+    {
+      "id": "BF_A_001",
+      "text": "I trust others easily",
+      "dimension": "Agreeableness",
+      "facet": "Trust",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.20,
+        "Agreeableness": 0.70,
+        "Conscientiousness": 0.00,
+        "Neuroticism": -0.25,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_A_002",
+      "text": "I suspect hidden motives in others",
+      "dimension": "Agreeableness",
+      "facet": "Trust",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.15,
+        "Agreeableness": -0.75,
+        "Conscientiousness": 0.00,
+        "Neuroticism": 0.30,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_A_003",
+      "text": "I believe others have good intentions",
+      "dimension": "Agreeableness",
+      "facet": "Trust",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.15,
+        "Agreeableness": 0.72,
+        "Conscientiousness": 0.05,
+        "Neuroticism": -0.20,
+        "Openness": 0.12
+      }
+    },
+    {
+      "id": "BF_A_004",
+      "text": "I think people exploit others",
+      "dimension": "Agreeableness",
+      "facet": "Trust",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.20,
+        "Agreeableness": -0.68,
+        "Conscientiousness": -0.05,
+        "Neuroticism": 0.25,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_A_005",
+      "text": "I always say what I think",
+      "dimension": "Agreeableness",
+      "facet": "Straightforwardness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.30,
+        "Agreeableness": 0.45,
+        "Conscientiousness": -0.10,
+        "Neuroticism": -0.05,
+        "Openness": 0.20
+      }
+    },
+    {
+      "id": "BF_A_006",
+      "text": "I hide my true feelings",
+      "dimension": "Agreeableness",
+      "facet": "Straightforwardness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.35,
+        "Agreeableness": -0.50,
+        "Conscientiousness": 0.00,
+        "Neuroticism": 0.35,
+        "Openness": -0.15
+      }
+    },
+    {
+      "id": "BF_A_007",
+      "text": "I am direct with people",
+      "dimension": "Agreeableness",
+      "facet": "Straightforwardness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.35,
+        "Agreeableness": 0.40,
+        "Conscientiousness": 0.10,
+        "Neuroticism": -0.10,
+        "Openness": 0.15
+      }
+    },
+    {
+      "id": "BF_A_008",
+      "text": "I pretend to be concerned",
+      "dimension": "Agreeableness",
+      "facet": "Straightforwardness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.10,
+        "Agreeableness": -0.65,
+        "Conscientiousness": -0.20,
+        "Neuroticism": 0.15,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_A_009",
+      "text": "I help others without being asked",
+      "dimension": "Agreeableness",
+      "facet": "Altruism",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.25,
+        "Agreeableness": 0.75,
+        "Conscientiousness": 0.20,
+        "Neuroticism": -0.10,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_A_010",
+      "text": "I look out only for myself",
+      "dimension": "Agreeableness",
+      "facet": "Altruism",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.30,
+        "Agreeableness": -0.80,
+        "Conscientiousness": -0.25,
+        "Neuroticism": 0.10,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_A_011",
+      "text": "I love to help others",
+      "dimension": "Agreeableness",
+      "facet": "Altruism",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.30,
+        "Agreeableness": 0.78,
+        "Conscientiousness": 0.15,
+        "Neuroticism": -0.15,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_A_012",
+      "text": "I am indifferent to others' needs",
+      "dimension": "Agreeableness",
+      "facet": "Altruism",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.35,
+        "Agreeableness": -0.82,
+        "Conscientiousness": -0.20,
+        "Neuroticism": 0.05,
+        "Openness": -0.15
+      }
+    },
+    {
+      "id": "BF_A_013",
+      "text": "I can't stand confrontations",
+      "dimension": "Agreeableness",
+      "facet": "Compliance",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.20,
+        "Agreeableness": 0.55,
+        "Conscientiousness": -0.05,
+        "Neuroticism": 0.40,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_A_014",
+      "text": "I love a good fight",
+      "dimension": "Agreeableness",
+      "facet": "Compliance",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.25,
+        "Agreeableness": -0.65,
+        "Conscientiousness": -0.20,
+        "Neuroticism": 0.15,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_A_015",
+      "text": "I avoid arguments",
+      "dimension": "Agreeableness",
+      "facet": "Compliance",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.25,
+        "Agreeableness": 0.60,
+        "Conscientiousness": 0.10,
+        "Neuroticism": 0.20,
+        "Openness": -0.15
+      }
+    },
+    {
+      "id": "BF_A_016",
+      "text": "I contradict others frequently",
+      "dimension": "Agreeableness",
+      "facet": "Compliance",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.20,
+        "Agreeableness": -0.70,
+        "Conscientiousness": -0.15,
+        "Neuroticism": 0.20,
+        "Openness": 0.15
+      }
+    },
+    {
+      "id": "BF_A_017",
+      "text": "I dislike being the center of attention",
+      "dimension": "Agreeableness",
+      "facet": "Modesty",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.55,
+        "Agreeableness": 0.40,
+        "Conscientiousness": 0.05,
+        "Neuroticism": 0.30,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_A_018",
+      "text": "I like to be seen as superior",
+      "dimension": "Agreeableness",
+      "facet": "Modesty",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.30,
+        "Agreeableness": -0.60,
+        "Conscientiousness": -0.10,
+        "Neuroticism": 0.10,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_A_019",
+      "text": "I don't like to draw attention to myself",
+      "dimension": "Agreeableness",
+      "facet": "Modesty",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.60,
+        "Agreeableness": 0.35,
+        "Conscientiousness": 0.10,
+        "Neuroticism": 0.25,
+        "Openness": -0.15
+      }
+    },
+    {
+      "id": "BF_A_020",
+      "text": "I boast about my virtues",
+      "dimension": "Agreeableness",
+      "facet": "Modesty",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.35,
+        "Agreeableness": -0.65,
+        "Conscientiousness": -0.15,
+        "Neuroticism": 0.05,
+        "Openness": 0.00
+      }
+    },
+    {
+      "id": "BF_A_021",
+      "text": "I sympathize with the homeless",
+      "dimension": "Agreeableness",
+      "facet": "Tender-Mindedness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.10,
+        "Agreeableness": 0.70,
+        "Conscientiousness": 0.00,
+        "Neuroticism": 0.15,
+        "Openness": 0.25
+      }
+    },
+    {
+      "id": "BF_A_022",
+      "text": "I am not interested in other people's problems",
+      "dimension": "Agreeableness",
+      "facet": "Tender-Mindedness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.30,
+        "Agreeableness": -0.75,
+        "Conscientiousness": -0.10,
+        "Neuroticism": -0.05,
+        "Openness": -0.20
+      }
+    },
+    {
+      "id": "BF_A_023",
+      "text": "I feel others' emotions",
+      "dimension": "Agreeableness",
+      "facet": "Tender-Mindedness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.15,
+        "Agreeableness": 0.65,
+        "Conscientiousness": -0.05,
+        "Neuroticism": 0.35,
+        "Openness": 0.30
+      }
+    },
+    {
+      "id": "BF_A_024",
+      "text": "I remain unaffected by others' suffering",
+      "dimension": "Agreeableness",
+      "facet": "Tender-Mindedness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.25,
+        "Agreeableness": -0.78,
+        "Conscientiousness": -0.05,
+        "Neuroticism": -0.20,
+        "Openness": -0.25
+      }
+    },
+    {
+      "id": "BF_C_001",
+      "text": "I am very competent at what I do",
+      "dimension": "Conscientiousness",
+      "facet": "Competence",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.15,
+        "Agreeableness": 0.00,
+        "Conscientiousness": 0.75,
+        "Neuroticism": -0.25,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_C_002",
+      "text": "I often make mistakes",
+      "dimension": "Conscientiousness",
+      "facet": "Competence",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.10,
+        "Agreeableness": -0.05,
+        "Conscientiousness": -0.70,
+        "Neuroticism": 0.35,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_C_003",
+      "text": "I excel in what I do",
+      "dimension": "Conscientiousness",
+      "facet": "Competence",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.20,
+        "Agreeableness": -0.05,
+        "Conscientiousness": 0.78,
+        "Neuroticism": -0.30,
+        "Openness": 0.15
+      }
+    },
+    {
+      "id": "BF_C_004",
+      "text": "I don't understand things quickly",
+      "dimension": "Conscientiousness",
+      "facet": "Competence",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.20,
+        "Agreeableness": 0.00,
+        "Conscientiousness": -0.65,
+        "Neuroticism": 0.30,
+        "Openness": -0.35
+      }
+    },
+    {
+      "id": "BF_C_005",
+      "text": "I like order and regularity",
+      "dimension": "Conscientiousness",
+      "facet": "Order",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.10,
+        "Agreeableness": 0.05,
+        "Conscientiousness": 0.80,
+        "Neuroticism": 0.00,
+        "Openness": -0.20
+      }
+    },
+    {
+      "id": "BF_C_006",
+      "text": "I leave my belongings around",
+      "dimension": "Conscientiousness",
+      "facet": "Order",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.05,
+        "Agreeableness": -0.10,
+        "Conscientiousness": -0.75,
+        "Neuroticism": 0.10,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_C_007",
+      "text": "I keep things neat and tidy",
+      "dimension": "Conscientiousness",
+      "facet": "Order",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.05,
+        "Agreeableness": 0.10,
+        "Conscientiousness": 0.82,
+        "Neuroticism": -0.05,
+        "Openness": -0.15
+      }
+    },
+    {
+      "id": "BF_C_008",
+      "text": "I often forget to put things back",
+      "dimension": "Conscientiousness",
+      "facet": "Order",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.00,
+        "Agreeableness": -0.15,
+        "Conscientiousness": -0.78,
+        "Neuroticism": 0.15,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_C_009",
+      "text": "I keep my promises",
+      "dimension": "Conscientiousness",
+      "facet": "Dutifulness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.00,
+        "Agreeableness": 0.35,
+        "Conscientiousness": 0.70,
+        "Neuroticism": -0.15,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_C_010",
+      "text": "I break rules",
+      "dimension": "Conscientiousness",
+      "facet": "Dutifulness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.15,
+        "Agreeableness": -0.40,
+        "Conscientiousness": -0.65,
+        "Neuroticism": 0.10,
+        "Openness": 0.20
+      }
+    },
+    {
+      "id": "BF_C_011",
+      "text": "I tell the truth",
+      "dimension": "Conscientiousness",
+      "facet": "Dutifulness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.05,
+        "Agreeableness": 0.45,
+        "Conscientiousness": 0.65,
+        "Neuroticism": -0.10,
+        "Openness": 0.00
+      }
+    },
+    {
+      "id": "BF_C_012",
+      "text": "I misrepresent facts",
+      "dimension": "Conscientiousness",
+      "facet": "Dutifulness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.10,
+        "Agreeableness": -0.50,
+        "Conscientiousness": -0.60,
+        "Neuroticism": 0.15,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_C_013",
+      "text": "I work hard to achieve my goals",
+      "dimension": "Conscientiousness",
+      "facet": "Achievement-Striving",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.20,
+        "Agreeableness": -0.05,
+        "Conscientiousness": 0.82,
+        "Neuroticism": -0.10,
+        "Openness": 0.15
+      }
+    },
+    {
+      "id": "BF_C_014",
+      "text": "I do just enough work to get by",
+      "dimension": "Conscientiousness",
+      "facet": "Achievement-Striving",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.15,
+        "Agreeableness": 0.00,
+        "Conscientiousness": -0.75,
+        "Neuroticism": 0.05,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_C_015",
+      "text": "I demand quality",
+      "dimension": "Conscientiousness",
+      "facet": "Achievement-Striving",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.15,
+        "Agreeableness": -0.15,
+        "Conscientiousness": 0.75,
+        "Neuroticism": 0.00,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_C_016",
+      "text": "I set low standards for myself",
+      "dimension": "Conscientiousness",
+      "facet": "Achievement-Striving",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.20,
+        "Agreeableness": 0.05,
+        "Conscientiousness": -0.80,
+        "Neuroticism": 0.25,
+        "Openness": -0.15
+      }
+    },
+    {
+      "id": "BF_C_017",
+      "text": "I start tasks right away",
+      "dimension": "Conscientiousness",
+      "facet": "Self-Discipline",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.10,
+        "Agreeableness": 0.00,
+        "Conscientiousness": 0.78,
+        "Neuroticism": -0.20,
+        "Openness": 0.00
+      }
+    },
+    {
+      "id": "BF_C_018",
+      "text": "I find it difficult to get down to work",
+      "dimension": "Conscientiousness",
+      "facet": "Self-Discipline",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.15,
+        "Agreeableness": -0.05,
+        "Conscientiousness": -0.82,
+        "Neuroticism": 0.30,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_C_019",
+      "text": "I get things done quickly",
+      "dimension": "Conscientiousness",
+      "facet": "Self-Discipline",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.15,
+        "Agreeableness": -0.05,
+        "Conscientiousness": 0.75,
+        "Neuroticism": -0.25,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_C_020",
+      "text": "I need a push to get started",
+      "dimension": "Conscientiousness",
+      "facet": "Self-Discipline",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.20,
+        "Agreeableness": 0.00,
+        "Conscientiousness": -0.80,
+        "Neuroticism": 0.35,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_C_021",
+      "text": "I think before I act",
+      "dimension": "Conscientiousness",
+      "facet": "Deliberation",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.20,
+        "Agreeableness": 0.10,
+        "Conscientiousness": 0.70,
+        "Neuroticism": -0.05,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_C_022",
+      "text": "I rush into things",
+      "dimension": "Conscientiousness",
+      "facet": "Deliberation",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.35,
+        "Agreeableness": -0.15,
+        "Conscientiousness": -0.65,
+        "Neuroticism": 0.20,
+        "Openness": 0.15
+      }
+    },
+    {
+      "id": "BF_C_023",
+      "text": "I consider all options carefully",
+      "dimension": "Conscientiousness",
+      "facet": "Deliberation",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.25,
+        "Agreeableness": 0.15,
+        "Conscientiousness": 0.72,
+        "Neuroticism": 0.00,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_C_024",
+      "text": "I act without thinking",
+      "dimension": "Conscientiousness",
+      "facet": "Deliberation",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.30,
+        "Agreeableness": -0.20,
+        "Conscientiousness": -0.75,
+        "Neuroticism": 0.25,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_N_001",
+      "text": "I often feel anxious",
+      "dimension": "Neuroticism",
+      "facet": "Anxiety",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.20,
+        "Agreeableness": -0.05,
+        "Conscientiousness": -0.10,
+        "Neuroticism": 0.80,
+        "Openness": 0.00
+      }
+    },
+    {
+      "id": "BF_N_002",
+      "text": "I rarely worry",
+      "dimension": "Neuroticism",
+      "facet": "Anxiety",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.25,
+        "Agreeableness": 0.10,
+        "Conscientiousness": 0.15,
+        "Neuroticism": -0.75,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_N_003",
+      "text": "I worry about things",
+      "dimension": "Neuroticism",
+      "facet": "Anxiety",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.15,
+        "Agreeableness": 0.00,
+        "Conscientiousness": -0.05,
+        "Neuroticism": 0.82,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_N_004",
+      "text": "I am relaxed most of the time",
+      "dimension": "Neuroticism",
+      "facet": "Anxiety",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.30,
+        "Agreeableness": 0.15,
+        "Conscientiousness": 0.20,
+        "Neuroticism": -0.78,
+        "Openness": 0.00
+      }
+    },
+    {
+      "id": "BF_N_005",
+      "text": "I get angry easily",
+      "dimension": "Neuroticism",
+      "facet": "Angry Hostility",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.00,
+        "Agreeableness": -0.45,
+        "Conscientiousness": -0.20,
+        "Neuroticism": 0.70,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_N_006",
+      "text": "I rarely get irritated",
+      "dimension": "Neuroticism",
+      "facet": "Angry Hostility",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.10,
+        "Agreeableness": 0.40,
+        "Conscientiousness": 0.25,
+        "Neuroticism": -0.65,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_N_007",
+      "text": "I lose my temper",
+      "dimension": "Neuroticism",
+      "facet": "Angry Hostility",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.05,
+        "Agreeableness": -0.50,
+        "Conscientiousness": -0.25,
+        "Neuroticism": 0.72,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_N_008",
+      "text": "I keep my cool",
+      "dimension": "Neuroticism",
+      "facet": "Angry Hostility",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.05,
+        "Agreeableness": 0.35,
+        "Conscientiousness": 0.30,
+        "Neuroticism": -0.68,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_N_009",
+      "text": "I often feel blue",
+      "dimension": "Neuroticism",
+      "facet": "Depression",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.35,
+        "Agreeableness": -0.10,
+        "Conscientiousness": -0.25,
+        "Neuroticism": 0.75,
+        "Openness": 0.00
+      }
+    },
+    {
+      "id": "BF_N_010",
+      "text": "I feel comfortable with myself",
+      "dimension": "Neuroticism",
+      "facet": "Depression",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.40,
+        "Agreeableness": 0.20,
+        "Conscientiousness": 0.30,
+        "Neuroticism": -0.70,
+        "Openness": 0.10
+      }
+    },
+    {
+      "id": "BF_N_011",
+      "text": "I dislike myself",
+      "dimension": "Neuroticism",
+      "facet": "Depression",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.30,
+        "Agreeableness": -0.15,
+        "Conscientiousness": -0.30,
+        "Neuroticism": 0.78,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_N_012",
+      "text": "I am very pleased with myself",
+      "dimension": "Neuroticism",
+      "facet": "Depression",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.45,
+        "Agreeableness": 0.15,
+        "Conscientiousness": 0.35,
+        "Neuroticism": -0.72,
+        "Openness": 0.15
+      }
+    },
+    {
+      "id": "BF_N_013",
+      "text": "I find it difficult to approach others",
+      "dimension": "Neuroticism",
+      "facet": "Self-Consciousness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.55,
+        "Agreeableness": -0.05,
+        "Conscientiousness": -0.10,
+        "Neuroticism": 0.65,
+        "Openness": -0.15
+      }
+    },
+    {
+      "id": "BF_N_014",
+      "text": "I am not embarrassed easily",
+      "dimension": "Neuroticism",
+      "facet": "Self-Consciousness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.45,
+        "Agreeableness": 0.00,
+        "Conscientiousness": 0.15,
+        "Neuroticism": -0.60,
+        "Openness": 0.20
+      }
+    },
+    {
+      "id": "BF_N_015",
+      "text": "I am afraid of drawing attention to myself",
+      "dimension": "Neuroticism",
+      "facet": "Self-Consciousness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.60,
+        "Agreeableness": 0.10,
+        "Conscientiousness": 0.00,
+        "Neuroticism": 0.68,
+        "Openness": -0.20
+      }
+    },
+    {
+      "id": "BF_N_016",
+      "text": "I am comfortable in unfamiliar situations",
+      "dimension": "Neuroticism",
+      "facet": "Self-Consciousness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.50,
+        "Agreeableness": 0.05,
+        "Conscientiousness": 0.10,
+        "Neuroticism": -0.62,
+        "Openness": 0.35
+      }
+    },
+    {
+      "id": "BF_N_017",
+      "text": "I often eat too much",
+      "dimension": "Neuroticism",
+      "facet": "Impulsiveness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.10,
+        "Agreeableness": -0.10,
+        "Conscientiousness": -0.45,
+        "Neuroticism": 0.55,
+        "Openness": 0.00
+      }
+    },
+    {
+      "id": "BF_N_018",
+      "text": "I easily resist temptations",
+      "dimension": "Neuroticism",
+      "facet": "Impulsiveness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.05,
+        "Agreeableness": 0.15,
+        "Conscientiousness": 0.50,
+        "Neuroticism": -0.50,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_N_019",
+      "text": "I go on binges",
+      "dimension": "Neuroticism",
+      "facet": "Impulsiveness",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.15,
+        "Agreeableness": -0.20,
+        "Conscientiousness": -0.50,
+        "Neuroticism": 0.58,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_N_020",
+      "text": "I never spend more than I can afford",
+      "dimension": "Neuroticism",
+      "facet": "Impulsiveness",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.10,
+        "Agreeableness": 0.10,
+        "Conscientiousness": 0.55,
+        "Neuroticism": -0.45,
+        "Openness": -0.15
+      }
+    },
+    {
+      "id": "BF_N_021",
+      "text": "I panic easily",
+      "dimension": "Neuroticism",
+      "facet": "Vulnerability",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.25,
+        "Agreeableness": -0.05,
+        "Conscientiousness": -0.30,
+        "Neuroticism": 0.78,
+        "Openness": -0.10
+      }
+    },
+    {
+      "id": "BF_N_022",
+      "text": "I remain calm under pressure",
+      "dimension": "Neuroticism",
+      "facet": "Vulnerability",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.20,
+        "Agreeableness": 0.10,
+        "Conscientiousness": 0.35,
+        "Neuroticism": -0.75,
+        "Openness": 0.05
+      }
+    },
+    {
+      "id": "BF_N_023",
+      "text": "I get overwhelmed by events",
+      "dimension": "Neuroticism",
+      "facet": "Vulnerability",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.30,
+        "Agreeableness": 0.00,
+        "Conscientiousness": -0.35,
+        "Neuroticism": 0.80,
+        "Openness": -0.05
+      }
+    },
+    {
+      "id": "BF_N_024",
+      "text": "I can handle complex problems",
+      "dimension": "Neuroticism",
+      "facet": "Vulnerability",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.25,
+        "Agreeableness": 0.00,
+        "Conscientiousness": 0.45,
+        "Neuroticism": -0.70,
+        "Openness": 0.25
+      }
+    },
+    {
+      "id": "BF_O_001",
+      "text": "I have a vivid imagination",
+      "dimension": "Openness",
+      "facet": "Fantasy",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.10,
+        "Agreeableness": 0.05,
+        "Conscientiousness": -0.10,
+        "Neuroticism": 0.00,
+        "Openness": 0.75
+      }
+    },
+    {
+      "id": "BF_O_002",
+      "text": "I have difficulty imagining things",
+      "dimension": "Openness",
+      "facet": "Fantasy",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.15,
+        "Agreeableness": -0.05,
+        "Conscientiousness": 0.15,
+        "Neuroticism": 0.10,
+        "Openness": -0.70
+      }
+    },
+    {
+      "id": "BF_O_003",
+      "text": "I love to daydream",
+      "dimension": "Openness",
+      "facet": "Fantasy",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.00,
+        "Agreeableness": 0.10,
+        "Conscientiousness": -0.25,
+        "Neuroticism": 0.10,
+        "Openness": 0.72
+      }
+    },
+    {
+      "id": "BF_O_004",
+      "text": "I seldom get lost in thought",
+      "dimension": "Openness",
+      "facet": "Fantasy",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.05,
+        "Agreeableness": -0.10,
+        "Conscientiousness": 0.30,
+        "Neuroticism": -0.05,
+        "Openness": -0.65
+      }
+    },
+    {
+      "id": "BF_O_005",
+      "text": "I believe in the importance of art",
+      "dimension": "Openness",
+      "facet": "Aesthetics",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.05,
+        "Agreeableness": 0.20,
+        "Conscientiousness": 0.00,
+        "Neuroticism": 0.05,
+        "Openness": 0.70
+      }
+    },
+    {
+      "id": "BF_O_006",
+      "text": "I do not enjoy going to art museums",
+      "dimension": "Openness",
+      "facet": "Aesthetics",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.20,
+        "Agreeableness": -0.15,
+        "Conscientiousness": 0.05,
+        "Neuroticism": 0.00,
+        "Openness": -0.68
+      }
+    },
+    {
+      "id": "BF_O_007",
+      "text": "I see beauty others might not notice",
+      "dimension": "Openness",
+      "facet": "Aesthetics",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.00,
+        "Agreeableness": 0.25,
+        "Conscientiousness": 0.05,
+        "Neuroticism": 0.10,
+        "Openness": 0.72
+      }
+    },
+    {
+      "id": "BF_O_008",
+      "text": "I do not like poetry",
+      "dimension": "Openness",
+      "facet": "Aesthetics",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.15,
+        "Agreeableness": -0.20,
+        "Conscientiousness": 0.10,
+        "Neuroticism": -0.05,
+        "Openness": -0.65
+      }
+    },
+    {
+      "id": "BF_O_009",
+      "text": "I experience emotions intensely",
+      "dimension": "Openness",
+      "facet": "Feelings",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.15,
+        "Agreeableness": 0.20,
+        "Conscientiousness": -0.05,
+        "Neuroticism": 0.40,
+        "Openness": 0.60
+      }
+    },
+    {
+      "id": "BF_O_010",
+      "text": "I rarely notice my emotional reactions",
+      "dimension": "Openness",
+      "facet": "Feelings",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.25,
+        "Agreeableness": -0.30,
+        "Conscientiousness": 0.10,
+        "Neuroticism": -0.20,
+        "Openness": -0.55
+      }
+    },
+    {
+      "id": "BF_O_011",
+      "text": "I feel others' emotions",
+      "dimension": "Openness",
+      "facet": "Feelings",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.10,
+        "Agreeableness": 0.45,
+        "Conscientiousness": 0.00,
+        "Neuroticism": 0.25,
+        "Openness": 0.55
+      }
+    },
+    {
+      "id": "BF_O_012",
+      "text": "I don't understand people who get emotional",
+      "dimension": "Openness",
+      "facet": "Feelings",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.20,
+        "Agreeableness": -0.50,
+        "Conscientiousness": 0.15,
+        "Neuroticism": -0.15,
+        "Openness": -0.60
+      }
+    },
+    {
+      "id": "BF_O_013",
+      "text": "I prefer variety to routine",
+      "dimension": "Openness",
+      "facet": "Actions",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.20,
+        "Agreeableness": -0.05,
+        "Conscientiousness": -0.30,
+        "Neuroticism": -0.05,
+        "Openness": 0.65
+      }
+    },
+    {
+      "id": "BF_O_014",
+      "text": "I dislike changes",
+      "dimension": "Openness",
+      "facet": "Actions",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.25,
+        "Agreeableness": 0.00,
+        "Conscientiousness": 0.25,
+        "Neuroticism": 0.20,
+        "Openness": -0.60
+      }
+    },
+    {
+      "id": "BF_O_015",
+      "text": "I like to visit new places",
+      "dimension": "Openness",
+      "facet": "Actions",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.35,
+        "Agreeableness": 0.05,
+        "Conscientiousness": -0.10,
+        "Neuroticism": -0.10,
+        "Openness": 0.68
+      }
+    },
+    {
+      "id": "BF_O_016",
+      "text": "I am attached to conventional ways",
+      "dimension": "Openness",
+      "facet": "Actions",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.20,
+        "Agreeableness": 0.10,
+        "Conscientiousness": 0.35,
+        "Neuroticism": 0.10,
+        "Openness": -0.65
+      }
+    },
+    {
+      "id": "BF_O_017",
+      "text": "I enjoy philosophical discussions",
+      "dimension": "Openness",
+      "facet": "Ideas",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.00,
+        "Agreeableness": 0.00,
+        "Conscientiousness": 0.05,
+        "Neuroticism": -0.05,
+        "Openness": 0.78
+      }
+    },
+    {
+      "id": "BF_O_018",
+      "text": "I avoid philosophical discussions",
+      "dimension": "Openness",
+      "facet": "Ideas",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.10,
+        "Agreeableness": -0.05,
+        "Conscientiousness": 0.00,
+        "Neuroticism": 0.05,
+        "Openness": -0.75
+      }
+    },
+    {
+      "id": "BF_O_019",
+      "text": "I like to solve complex problems",
+      "dimension": "Openness",
+      "facet": "Ideas",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.05,
+        "Agreeableness": -0.10,
+        "Conscientiousness": 0.30,
+        "Neuroticism": -0.15,
+        "Openness": 0.70
+      }
+    },
+    {
+      "id": "BF_O_020",
+      "text": "I have no interest in theoretical discussions",
+      "dimension": "Openness",
+      "facet": "Ideas",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.05,
+        "Agreeableness": -0.10,
+        "Conscientiousness": -0.05,
+        "Neuroticism": 0.00,
+        "Openness": -0.80
+      }
+    },
+    {
+      "id": "BF_O_021",
+      "text": "I tend to vote for liberal political candidates",
+      "dimension": "Openness",
+      "facet": "Values",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.05,
+        "Agreeableness": 0.15,
+        "Conscientiousness": -0.15,
+        "Neuroticism": 0.00,
+        "Openness": 0.60
+      }
+    },
+    {
+      "id": "BF_O_022",
+      "text": "I believe we should be tough on crime",
+      "dimension": "Openness",
+      "facet": "Values",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.00,
+        "Agreeableness": -0.25,
+        "Conscientiousness": 0.20,
+        "Neuroticism": 0.10,
+        "Openness": -0.55
+      }
+    },
+    {
+      "id": "BF_O_023",
+      "text": "I believe laws should be strictly enforced",
+      "dimension": "Openness",
+      "facet": "Values",
+      "reverse_scored": true,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": -0.05,
+        "Agreeableness": -0.20,
+        "Conscientiousness": 0.35,
+        "Neuroticism": 0.05,
+        "Openness": -0.58
+      }
+    },
+    {
+      "id": "BF_O_024",
+      "text": "I believe that there is no absolute right or wrong",
+      "dimension": "Openness",
+      "facet": "Values",
+      "reverse_scored": false,
+      "assessment_layer": "primary",
+      "response_type": "likert_7",
+      "factor_loadings": {
+        "Extraversion": 0.00,
+        "Agreeableness": 0.00,
+        "Conscientiousness": -0.25,
+        "Neuroticism": 0.05,
+        "Openness": 0.65
+      }
+    },
+    {
+      "id": "FC_EI_001",
+      "text": "At a party, I usually:",
+      "option_a": {
+        "text": "Seek out new people to meet and talk with many guests",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Have deep conversations with one or two people I know well",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_002",
+      "text": "When working on a project, I prefer to:",
+      "option_a": {
+        "text": "Collaborate with a team and bounce ideas off others",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Work independently and think through problems myself",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_003",
+      "text": "After a busy week, I recharge by:",
+      "option_a": {
+        "text": "Going out with friends or attending social events",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Spending quiet time alone or with very close friends",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_004",
+      "text": "In meetings, I tend to:",
+      "option_a": {
+        "text": "Think out loud and share ideas as they come to me",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Think carefully before speaking and share well-formed ideas",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_005",
+      "text": "I prefer phone conversations that are:",
+      "option_a": {
+        "text": "Spontaneous and can go in any direction",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Planned with a specific purpose in mind",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_006",
+      "text": "When solving problems, I:",
+      "option_a": {
+        "text": "Like to talk through solutions with others",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Need quiet time to think things through alone",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_007",
+      "text": "In social situations, I:",
+      "option_a": {
+        "text": "Find it easy to start conversations with strangers",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Prefer to be introduced or wait for others to approach me",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_008",
+      "text": "My ideal vacation would involve:",
+      "option_a": {
+        "text": "Lots of activities and meeting new people",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Peaceful relaxation and minimal social interaction",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_009",
+      "text": "When learning something new, I prefer to:",
+      "option_a": {
+        "text": "Join a class or study group",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Study on my own using books or online resources",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_010",
+      "text": "My energy level is highest when:",
+      "option_a": {
+        "text": "I'm interacting with people and engaged in activities",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "I have time for quiet reflection and focused work",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_011",
+      "text": "In friendships, I tend to:",
+      "option_a": {
+        "text": "Have many friends and enjoy large social circles",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Have a few close friends and prefer intimate gatherings",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_012",
+      "text": "When sharing personal news, I:",
+      "option_a": {
+        "text": "Tell many people and enjoy sharing my experiences",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Share only with a select few trusted individuals",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_EI_013",
+      "text": "My communication style is more:",
+      "option_a": {
+        "text": "Expressive and animated",
+        "scores": {"E": 1, "I": 0}
+      },
+      "option_b": {
+        "text": "Calm and measured",
+        "scores": {"E": 0, "I": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_001",
+      "text": "When learning something new, I focus on:",
+      "option_a": {
+        "text": "Practical applications and real-world examples",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Underlying theories and conceptual frameworks",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_002",
+      "text": "I trust information that is:",
+      "option_a": {
+        "text": "Concrete, factual, and based on experience",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Theoretical, innovative, and based on possibilities",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_003",
+      "text": "When reading, I prefer:",
+      "option_a": {
+        "text": "Clear, literal descriptions with specific details",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Metaphorical language that suggests deeper meanings",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_004",
+      "text": "When solving problems, I rely more on:",
+      "option_a": {
+        "text": "Past experience and proven methods",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Intuition and novel approaches",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_005",
+      "text": "I am more interested in:",
+      "option_a": {
+        "text": "What is actual and present",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "What is possible and future",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_006",
+      "text": "When describing something, I tend to:",
+      "option_a": {
+        "text": "Give specific details and stick to facts",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Use analogies and talk about impressions",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_007",
+      "text": "I prefer teachers who:",
+      "option_a": {
+        "text": "Lay out information step-by-step with clear examples",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Encourage exploration of concepts and connections",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_008",
+      "text": "When starting a new project, I first:",
+      "option_a": {
+        "text": "Identify what resources and steps are needed",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Envision the end result and overall purpose",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_009",
+      "text": "I notice and remember:",
+      "option_a": {
+        "text": "Specific details like colors, sounds, and textures",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Patterns, meanings, and relationships between things",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_010",
+      "text": "When giving directions, I:",
+      "option_a": {
+        "text": "Provide turn-by-turn instructions with landmarks",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Give a general sense of direction and destination",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_011",
+      "text": "I prefer work that involves:",
+      "option_a": {
+        "text": "Dealing with concrete facts and current realities",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Exploring ideas and future possibilities",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_SN_012",
+      "text": "I am more drawn to:",
+      "option_a": {
+        "text": "Practical, hands-on activities",
+        "scores": {"S": 1, "N": 0}
+      },
+      "option_b": {
+        "text": "Theoretical, conceptual discussions",
+        "scores": {"S": 0, "N": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_001",
+      "text": "When making decisions, I prioritize:",
+      "option_a": {
+        "text": "Logic and objective analysis",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Personal values and how others will be affected",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_002",
+      "text": "When giving feedback, I tend to:",
+      "option_a": {
+        "text": "Be direct and focus on what needs improvement",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Be tactful and emphasize positives first",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_003",
+      "text": "I believe the best decisions are based on:",
+      "option_a": {
+        "text": "Impartial analysis of pros and cons",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Consideration of people's feelings and values",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_004",
+      "text": "In conflicts, I focus more on:",
+      "option_a": {
+        "text": "Finding the truth and fair solution",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Maintaining harmony and relationships",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_005",
+      "text": "I am more convinced by:",
+      "option_a": {
+        "text": "Logical arguments and evidence",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Personal stories and emotional appeals",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_006",
+      "text": "When someone is upset, I first:",
+      "option_a": {
+        "text": "Try to solve the problem causing distress",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Offer emotional support and understanding",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_007",
+      "text": "I value more highly:",
+      "option_a": {
+        "text": "Competence and achievement",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Compassion and cooperation",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_008",
+      "text": "When evaluating ideas, I ask:",
+      "option_a": {
+        "text": "Does this make logical sense?",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Does this align with my values?",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_009",
+      "text": "I prefer work environments that emphasize:",
+      "option_a": {
+        "text": "Fair policies applied consistently to everyone",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Individual needs and circumstances",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_010",
+      "text": "In debates, I aim to:",
+      "option_a": {
+        "text": "Prove my point with facts and logic",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Find common ground and understanding",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_011",
+      "text": "I am more troubled by:",
+      "option_a": {
+        "text": "Illogical or inefficient systems",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Insensitive or uncaring behavior",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_012",
+      "text": "My decisions are guided more by:",
+      "option_a": {
+        "text": "My head and rational analysis",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "My heart and personal values",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_TF_013",
+      "text": "I appreciate people who are:",
+      "option_a": {
+        "text": "Logical and fair-minded",
+        "scores": {"T": 1, "F": 0}
+      },
+      "option_b": {
+        "text": "Warm and empathetic",
+        "scores": {"T": 0, "F": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_001",
+      "text": "I prefer to:",
+      "option_a": {
+        "text": "Have things decided and settled",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "Keep options open and flexible",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_002",
+      "text": "When planning a trip, I:",
+      "option_a": {
+        "text": "Create detailed itineraries and book in advance",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "Leave room for spontaneous discoveries",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_003",
+      "text": "I work best when:",
+      "option_a": {
+        "text": "I have clear deadlines and structured plans",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "I can adapt as I go and explore different approaches",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_004",
+      "text": "My workspace is usually:",
+      "option_a": {
+        "text": "Organized with everything in its place",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "Flexible with things where I last used them",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_005",
+      "text": "I feel most comfortable when:",
+      "option_a": {
+        "text": "Tasks are completed and off my list",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "I'm in the middle of exploring possibilities",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_006",
+      "text": "When shopping, I typically:",
+      "option_a": {
+        "text": "Make a list and stick to it",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "Browse and buy what catches my interest",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_007",
+      "text": "I prefer projects that:",
+      "option_a": {
+        "text": "Have clear goals and defined endpoints",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "Evolve and can go in different directions",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_008",
+      "text": "Unexpected changes to my plans:",
+      "option_a": {
+        "text": "Frustrate me and throw me off track",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "Excite me with new possibilities",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_009",
+      "text": "I tend to:",
+      "option_a": {
+        "text": "Make decisions quickly to move forward",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "Gather more information before deciding",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_010",
+      "text": "My ideal weekend is:",
+      "option_a": {
+        "text": "Planned with scheduled activities",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "Open with no fixed commitments",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_011",
+      "text": "I view rules and deadlines as:",
+      "option_a": {
+        "text": "Important structures to follow",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "Flexible guidelines to consider",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "FC_JP_012",
+      "text": "When starting my day, I prefer to:",
+      "option_a": {
+        "text": "Know what I'll be doing and when",
+        "scores": {"J": 1, "P": 0}
+      },
+      "option_b": {
+        "text": "See how the day unfolds naturally",
+        "scores": {"J": 0, "P": 1}
+      },
+      "assessment_layer": "secondary",
+      "response_type": "forced_choice"
+    },
+    {
+      "id": "JD_SH_001",
+      "text": "When someone really irritates me, I often later realize they remind me of qualities I dislike in myself",
+      "dimension": "Shadow_Integration",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "scoring": {
+        "shadow_awareness": [0, 0.25, 0.5, 0.75, 1.0]
+      }
+    },
+    {
+      "id": "JD_SH_002",
+      "text": "I notice that what bothers me most in others often reflects something I haven't accepted about myself",
+      "dimension": "Shadow_Integration",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "scoring": {
+        "shadow_awareness": [0, 0.25, 0.5, 0.75, 1.0]
+      }
+    },
+    {
+      "id": "JD_SH_003",
+      "text": "I can recognize parts of myself that I typically try to hide from others",
+      "dimension": "Shadow_Integration",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "scoring": {
+        "shadow_awareness": [0, 0.25, 0.5, 0.75, 1.0]
+      }
+    },
+    {
+      "id": "JD_SH_004",
+      "text": "I am aware of having contradictory aspects within my personality",
+      "dimension": "Shadow_Integration",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "scoring": {
+        "shadow_awareness": [0, 0.25, 0.5, 0.75, 1.0]
+      }
+    },
+    {
+      "id": "JD_SH_005",
+      "text": "I sometimes catch myself projecting my own issues onto others",
+      "dimension": "Shadow_Integration",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "scoring": {
+        "shadow_awareness": [0, 0.25, 0.5, 0.75, 1.0]
+      }
+    },
+    {
+      "id": "JD_SH_006",
+      "text": "I can embrace aspects of myself that I once rejected",
+      "dimension": "Shadow_Integration",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "scoring": {
+        "shadow_awareness": [0, 0.25, 0.5, 0.75, 1.0]
+      }
+    },
+    {
+      "id": "JD_SH_007",
+      "text": "I understand that my strong emotional reactions often point to unresolved personal issues",
+      "dimension": "Shadow_Integration",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "scoring": {
+        "shadow_awareness": [0, 0.25, 0.5, 0.75, 1.0]
+      }
+    },
+    {
+      "id": "JD_SH_008",
+      "text": "I am working on integrating the parts of myself I used to deny",
+      "dimension": "Shadow_Integration",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "scoring": {
+        "shadow_awareness": [0, 0.25, 0.5, 0.75, 1.0]
+      }
+    },
+    {
+      "id": "JD_SH_009",
+      "text": "I recognize that my harshest judgments of others often apply to myself",
+      "dimension": "Shadow_Integration",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "scoring": {
+        "shadow_awareness": [0, 0.25, 0.5, 0.75, 1.0]
+      }
+    },
+    {
+      "id": "JD_SH_010",
+      "text": "I can see how my unconscious patterns influence my behavior",
+      "dimension": "Shadow_Integration",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "scoring": {
+        "shadow_awareness": [0, 0.25, 0.5, 0.75, 1.0]
+      }
+    },
+    {
+      "id": "JD_AR_001",
+      "text": "I often feel like I'm on a quest or journey in life",
+      "dimension": "Archetype",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "archetype": "Hero"
+    },
+    {
+      "id": "JD_AR_002",
+      "text": "I feel drawn to help and nurture others",
+      "dimension": "Archetype",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "archetype": "Caregiver"
+    },
+    {
+      "id": "JD_AR_003",
+      "text": "I seek to understand the deeper truths of existence",
+      "dimension": "Archetype",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "archetype": "Sage"
+    },
+    {
+      "id": "JD_AR_004",
+      "text": "I feel compelled to create and innovate",
+      "dimension": "Archetype",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "archetype": "Creator"
+    },
+    {
+      "id": "JD_AR_005",
+      "text": "I often challenge the status quo and established systems",
+      "dimension": "Archetype",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "archetype": "Rebel"
+    },
+    {
+      "id": "JD_AR_006",
+      "text": "I use humor to navigate life's challenges",
+      "dimension": "Archetype",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "archetype": "Jester"
+    },
+    {
+      "id": "JD_AR_007",
+      "text": "I feel called to lead and take responsibility",
+      "dimension": "Archetype",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "archetype": "Ruler"
+    },
+    {
+      "id": "JD_AR_008",
+      "text": "I am driven to explore and seek new experiences",
+      "dimension": "Archetype",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "archetype": "Explorer"
+    },
+    {
+      "id": "JD_AR_009",
+      "text": "I believe in the power of transformation and change",
+      "dimension": "Archetype",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "archetype": "Magician"
+    },
+    {
+      "id": "JD_AR_010",
+      "text": "I value authenticity and being true to myself above all",
+      "dimension": "Archetype",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary",
+      "archetype": "Innocent"
+    },
+    {
+      "id": "JD_IN_001",
+      "text": "I feel I am becoming more whole and integrated as a person",
+      "dimension": "Individuation",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary"
+    },
+    {
+      "id": "JD_IN_002",
+      "text": "I am comfortable with paradoxes and contradictions in life",
+      "dimension": "Individuation",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary"
+    },
+    {
+      "id": "JD_IN_003",
+      "text": "I have a clear sense of my life's purpose",
+      "dimension": "Individuation",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary"
+    },
+    {
+      "id": "JD_IN_004",
+      "text": "I can hold multiple perspectives without needing to choose sides",
+      "dimension": "Individuation",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary"
+    },
+    {
+      "id": "JD_IN_005",
+      "text": "I feel connected to something larger than myself",
+      "dimension": "Individuation",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary"
+    },
+    {
+      "id": "JD_IN_006",
+      "text": "I have integrated lessons from my past experiences",
+      "dimension": "Individuation",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary"
+    },
+    {
+      "id": "JD_IN_007",
+      "text": "I am at peace with aspects of myself I once struggled with",
+      "dimension": "Individuation",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary"
+    },
+    {
+      "id": "JD_IN_008",
+      "text": "I understand my place in the larger scheme of things",
+      "dimension": "Individuation",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary"
+    },
+    {
+      "id": "JD_IN_009",
+      "text": "I have developed my own values independent of external influences",
+      "dimension": "Individuation",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary"
+    },
+    {
+      "id": "JD_IN_010",
+      "text": "I experience a sense of inner unity despite life's complexities",
+      "dimension": "Individuation",
+      "response_type": "likert_5",
+      "assessment_layer": "tertiary"
+    }
+  ]
+}
