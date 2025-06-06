@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import TestInstructions from './components/TestInstructions';
 import QuestionDisplay from './components/QuestionDisplay';
+import MultiQuestionDisplay from './components/MultiQuestionDisplay';
 import ProgressBar from './components/ProgressBar';
 import ResultsDisplay from './components/ResultsDisplay';
 import LoadingScreen from './components/LoadingScreen';
@@ -17,6 +18,9 @@ function App() {
   const [responses, setResponses] = useState<QuestionResponse[]>([]);
   const [results, setResults] = useState<AssessmentResults | null>(null);
   const [error, setError] = useState<string | null>(null);
+  
+  const QUESTIONS_PER_PAGE = 5;
+  const isMobile = window.innerWidth < 768;
 
   const handleStartTest = async () => {
     try {
@@ -50,11 +54,35 @@ function App() {
     }
   };
 
+  const handleMultiAnswer = (newResponses: QuestionResponse[]) => {
+    // Update responses for the current page
+    const pageStart = currentQuestionIndex;
+    const pageEnd = Math.min(currentQuestionIndex + QUESTIONS_PER_PAGE, questions.length);
+    
+    // Remove old responses for current page and add new ones
+    const updatedResponses = [...responses];
+    const pageQuestionIds = questions.slice(pageStart, pageEnd).map(q => q.id);
+    
+    // Filter out old responses for current page questions
+    const filteredResponses = updatedResponses.filter(
+      r => !pageQuestionIds.includes(r.question_id)
+    );
+    
+    // Add new responses
+    const finalResponses = [...filteredResponses, ...newResponses];
+    setResponses(finalResponses);
+    
+    if (pageEnd < questions.length) {
+      setCurrentQuestionIndex(pageEnd);
+    } else {
+      submitAssessment(finalResponses);
+    }
+  };
+
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(currentQuestionIndex - 1);
-      // Remove the last response
-      setResponses(responses.slice(0, -1));
+      const newIndex = Math.max(0, currentQuestionIndex - (isMobile ? QUESTIONS_PER_PAGE : 1));
+      setCurrentQuestionIndex(newIndex);
     }
   };
 
@@ -71,7 +99,22 @@ function App() {
   };
 
   const currentQuestion = questions[currentQuestionIndex];
-  const progress = questions.length > 0 ? (currentQuestionIndex + 1) / questions.length : 0;
+  const progress = questions.length > 0 ? Math.min((currentQuestionIndex + (isMobile ? QUESTIONS_PER_PAGE : 1)) / questions.length, 1) : 0;
+  
+  // Get current page of questions for mobile
+  const getCurrentPageQuestions = () => {
+    const start = currentQuestionIndex;
+    const end = Math.min(start + QUESTIONS_PER_PAGE, questions.length);
+    return questions.slice(start, end);
+  };
+  
+  // Get current page responses
+  const getCurrentPageResponses = () => {
+    const pageQuestions = getCurrentPageQuestions();
+    return pageQuestions.map(q => 
+      responses.find(r => r.question_id === q.id)
+    ).filter(Boolean) as QuestionResponse[];
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -90,7 +133,7 @@ function App() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1 }}
               >
-                <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent mb-6">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent mb-6">
                   Discover Your True Self
                 </h1>
               </motion.div>
@@ -99,7 +142,7 @@ function App() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed"
+                className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0"
               >
                 A comprehensive personality assessment that integrates the Big Five traits, 
                 MBTI preferences, and Jungian depth psychology to reveal your unique personality profile.
@@ -127,15 +170,15 @@ function App() {
                   </span>
                   <span className="flex items-center gap-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                    200 questions
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                     Private & secure
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    Quick & easy
                   </span>
                 </div>
               </motion.div>
@@ -147,7 +190,7 @@ function App() {
           <TestInstructions onBegin={handleBeginAssessment} />
         )}
 
-        {appState === 'test' && currentQuestion && (
+        {appState === 'test' && questions.length > 0 && (
           <motion.div
             key="test"
             initial={{ opacity: 0 }}
@@ -157,19 +200,32 @@ function App() {
           >
             <div className="max-w-3xl mx-auto">
               <ProgressBar 
-                current={currentQuestionIndex + 1} 
+                current={Math.min(currentQuestionIndex + (isMobile ? QUESTIONS_PER_PAGE : 1), questions.length)} 
                 total={questions.length} 
                 percentage={progress}
               />
               
-              <QuestionDisplay
-                question={currentQuestion}
-                questionNumber={currentQuestionIndex + 1}
-                totalQuestions={questions.length}
-                onAnswer={handleAnswer}
-                onPrevious={currentQuestionIndex > 0 ? handlePrevious : undefined}
-                currentAnswer={responses.find(r => r.question_id === currentQuestion.id)}
-              />
+              {isMobile ? (
+                <MultiQuestionDisplay
+                  questions={getCurrentPageQuestions()}
+                  startIndex={currentQuestionIndex}
+                  totalQuestions={questions.length}
+                  onSubmit={handleMultiAnswer}
+                  onPrevious={currentQuestionIndex > 0 ? handlePrevious : undefined}
+                  currentResponses={getCurrentPageResponses()}
+                />
+              ) : (
+                currentQuestion && (
+                  <QuestionDisplay
+                    question={currentQuestion}
+                    questionNumber={currentQuestionIndex + 1}
+                    totalQuestions={questions.length}
+                    onAnswer={handleAnswer}
+                    onPrevious={currentQuestionIndex > 0 ? handlePrevious : undefined}
+                    currentAnswer={responses.find(r => r.question_id === currentQuestion.id)}
+                  />
+                )
+              )}
             </div>
           </motion.div>
         )}
