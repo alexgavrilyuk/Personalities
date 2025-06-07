@@ -32,13 +32,23 @@ class ScoringService:
         }
 
     def _load_questions(self) -> Dict:
-        questions_path = os.path.join(os.path.dirname(__file__), '../../questions/questions.json')
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        questions_path = os.path.join(current_dir, '../../questions/questions.json')
+        
+        if not os.path.exists(questions_path):
+            raise FileNotFoundError(f"Questions file not found at: {questions_path}")
+            
         with open(questions_path, 'r') as f:
             data = json.load(f)
         return {q['id']: q for q in data['questions']}
 
     def _load_norms(self) -> Dict:
-        norms_path = os.path.join(os.path.dirname(__file__), '../../norms/norm_data.json')
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        norms_path = os.path.join(current_dir, '../../norms/norm_data.json')
+        
+        if not os.path.exists(norms_path):
+            raise FileNotFoundError(f"Norms file not found at: {norms_path}")
+            
         with open(norms_path, 'r') as f:
             return json.load(f)
 

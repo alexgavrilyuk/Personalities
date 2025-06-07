@@ -4,6 +4,7 @@ import random
 import json
 import os
 from app.models.assessment import (
+    AssessmentStartRequest,
     AssessmentStartResponse, 
     AssessmentSubmission,
     AssessmentResults,
@@ -23,14 +24,21 @@ scoring_service = ScoringService()
 interpretation_service = InterpretationService()
 
 @router.post("/start-assessment", response_model=AssessmentStartResponse)
-async def start_assessment():
+async def start_assessment(request: AssessmentStartRequest = AssessmentStartRequest()):
     """
     Returns shuffled questions for the assessment.
     Questions are shuffled within each layer but maintain layer order.
+    If user_seed is provided, uses deterministic shuffling for consistent order.
     """
     try:
         # Load questions
-        questions_path = os.path.join(os.path.dirname(__file__), '../../questions/questions.json')
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        questions_path = os.path.join(current_dir, '../../questions/questions.json')
+        
+        # Ensure path exists
+        if not os.path.exists(questions_path):
+            raise FileNotFoundError(f"Questions file not found at: {questions_path}")
+            
         with open(questions_path, 'r') as f:
             data = json.load(f)
         
@@ -41,10 +49,18 @@ async def start_assessment():
         secondary = [q for q in all_questions if q['assessment_layer'] == 'secondary']
         tertiary = [q for q in all_questions if q['assessment_layer'] == 'tertiary']
         
-        # Shuffle within each layer
-        random.shuffle(primary)
-        random.shuffle(secondary)
-        random.shuffle(tertiary)
+        # Create a random instance with seed if provided
+        if request.user_seed:
+            # Use a seeded random for deterministic shuffling
+            rng = random.Random(request.user_seed)
+            rng.shuffle(primary)
+            rng.shuffle(secondary)
+            rng.shuffle(tertiary)
+        else:
+            # Use regular random shuffle for anonymous users
+            random.shuffle(primary)
+            random.shuffle(secondary)
+            random.shuffle(tertiary)
         
         # Combine in order
         shuffled_questions = primary + secondary + tertiary

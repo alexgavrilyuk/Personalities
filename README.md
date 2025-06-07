@@ -27,12 +27,44 @@ A modern, scientifically-grounded personality assessment application that integr
 - **Personalized Development**: Tailored growth suggestions
 
 ### Privacy & Architecture
-- **Zero Data Persistence**: No accounts, no storage, no tracking
-- **Stateless Design**: All processing in-memory
-- **Session-Free**: Results exist only in browser until refresh
-- **GDPR Compliant**: No personal data collected or stored
+- **Optional Account System**: Create an account to save progress or use anonymously
+- **Progress Saving**: Automatic real-time saving for logged-in users
+- **Secure Authentication**: Powered by Supabase with industry-standard security
+- **GDPR Compliant**: Full control over your data with ability to delete anytime
+- **Three-Service Architecture**: 
+  - Frontend (React) - User interface
+  - Backend (Node.js) - Authentication & data persistence
+  - BackendPip (Python) - Assessment processing & scoring
 
 ## 🚀 Quick Start
+
+### Prerequisites
+
+1. **Supabase Account**: Sign up at [supabase.com](https://supabase.com)
+
+2. **Database Setup**: 
+   - Go to your Supabase project dashboard
+   - Navigate to SQL Editor
+   - Run the contents of `supabase_schema.sql`
+   - This creates tables with proper RLS policies
+
+3. **Environment Variables**: 
+   ```bash
+   # Backend/.env
+   NODE_ENV=development
+   PORT=8001
+   SUPABASE_URL=https://[your-project].supabase.co
+   SUPABASE_ANON_KEY=your_anon_key
+   SUPABASE_SERVICE_KEY=your_service_key  # Important: Service role key for RLS bypass
+   FRONTEND_URL=http://localhost:3000
+   BACKEND_PIP_URL=http://localhost:8000
+   
+   # Frontend/.env
+   REACT_APP_API_URL=http://localhost:8000/api
+   REACT_APP_AUTH_API_URL=http://localhost:8001/api
+   REACT_APP_SUPABASE_URL=https://[your-project].supabase.co
+   REACT_APP_SUPABASE_ANON_KEY=your_anon_key
+   ```
 
 ### Using Docker (Recommended)
 
@@ -40,6 +72,11 @@ A modern, scientifically-grounded personality assessment application that integr
 # Clone the repository
 git clone <repository-url>
 cd PersonalitiesTwo
+
+# Configure environment variables
+cp Backend/.env.example Backend/.env
+cp Frontend/.env.example Frontend/.env
+# Edit both .env files with your Supabase credentials
 
 # Start the application
 docker-compose up -d
@@ -49,14 +86,17 @@ docker-compose logs -f
 
 # Access the application
 # Frontend: http://localhost:3000
-# API Docs: http://localhost:8000/docs
+# BackendPip API: http://localhost:8000/docs
+# Backend API: http://localhost:8001
 ```
 
 ### Manual Setup
 
-#### Backend Setup
+#### Backend Services
+
+**BackendPip (Python/FastAPI) - Assessment Logic:**
 ```bash
-cd Backend
+cd BackendPip
 
 # Create virtual environment
 python3 -m venv venv
@@ -67,6 +107,21 @@ pip install -r requirements.txt
 
 # Run development server
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+**Backend (Node.js/Express) - Authentication & Data:**
+```bash
+cd Backend
+
+# Install dependencies
+npm install
+
+# Configure environment variables
+cp .env.example .env
+# Edit .env with your Supabase credentials
+
+# Run development server
+npm run dev  # or npm start for production
 ```
 
 #### Frontend Setup
@@ -83,11 +138,42 @@ npm start
 npm run build
 ```
 
+## 🏗️ Architecture
+
+The application follows a microservices architecture with three main components:
+
+1. **Frontend (React/TypeScript)**: User interface with optional authentication
+2. **Backend (Node.js/Express)**: Handles authentication, user management, and data persistence via Supabase
+3. **BackendPip (Python/FastAPI)**: Processes assessments and generates results using scientific algorithms
+
+### Data Flow
+- **Anonymous users**: Frontend → BackendPip (direct assessment processing)
+- **Authenticated users**: 
+  - Progress saving: Frontend → Backend → Supabase
+  - Assessment loading: Frontend → BackendPip (with user seed for consistent order)
+  - Results generation: Backend fetches saved responses → BackendPip for calculation
+- **Key Features**:
+  - Results are never stored, only raw responses
+  - Deterministic question shuffling for returning users
+  - Real-time auto-save with visual feedback
+  - Resume from any point in the assessment
+
 ## 📁 Project Structure
 
 ```
 PersonalitiesTwo/
-├── Backend/
+├── Backend/                     # Node.js authentication & data service
+│   ├── src/
+│   │   ├── routes/              # API endpoints
+│   │   │   ├── auth.js          # Authentication endpoints
+│   │   │   ├── user.js          # User management
+│   │   │   └── responses.js     # Response saving/loading
+│   │   ├── middleware/          # Express middleware
+│   │   ├── services/            # Business logic
+│   │   └── index.js             # Server entry point
+│   ├── package.json
+│   └── Dockerfile
+├── BackendPip/                  # Python assessment processing service
 │   ├── app/
 │   │   ├── main.py              # FastAPI application
 │   │   ├── models/              # Pydantic data models

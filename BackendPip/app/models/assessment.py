@@ -40,6 +40,9 @@ class QuestionResponse(BaseModel):
     response_value: Optional[int] = None  # For Likert scales
     selected_option: Optional[str] = None  # For forced choice ('a' or 'b')
 
+class AssessmentStartRequest(BaseModel):
+    user_seed: Optional[str] = None
+
 class AssessmentStartResponse(BaseModel):
     questions: List[Question]
     total_questions: int

@@ -1,42 +1,131 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import TestInstructions from './components/TestInstructions';
 import QuestionDisplay from './components/QuestionDisplay';
 import MultiQuestionDisplay from './components/MultiQuestionDisplay';
 import ProgressBar from './components/ProgressBar';
 import ResultsDisplay from './components/ResultsDisplay';
+import ResultsWrapper from './components/ResultsWrapper';
 import LoadingScreen from './components/LoadingScreen';
+import Header from './components/Header';
+import SignupModal from './components/auth/SignupModal';
+import MyAccount from './pages/MyAccount';
+import MyReports from './pages/MyReports';
+import About from './pages/About';
+import Support from './pages/Support';
 import { api } from './utils/api';
 import { Question, QuestionResponse, AssessmentResults } from './types/assessment';
+import { useAuth } from './contexts/AuthContext';
+import { useResponseSaver } from './hooks/useResponseSaver';
 
 type AppState = 'landing' | 'instructions' | 'test' | 'processing' | 'results';
 
-function App() {
+function MainAssessment() {
+  const { user, session, loading: authLoading } = useAuth();
+  const navigate = useNavigate();
+  const { queueResponse, saveImmediately, saveStatus } = useResponseSaver();
+  
   const [appState, setAppState] = useState<AppState>('landing');
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [responses, setResponses] = useState<QuestionResponse[]>([]);
   const [results, setResults] = useState<AssessmentResults | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [showSignupModal, setShowSignupModal] = useState(false);
+  const [hasActiveAssessment, setHasActiveAssessment] = useState(false);
   
   const QUESTIONS_PER_PAGE = 5;
   const isMobile = window.innerWidth < 768;
 
+  // Check for existing progress on mount
+  useEffect(() => {
+    console.log('Auth effect - authLoading:', authLoading, 'user:', !!user, 'session:', !!session);
+    if (!authLoading) {
+      if (user && session) {
+        console.log('Calling checkExistingProgress...');
+        checkExistingProgress();
+      } else {
+        // Reset if user logs out
+        setHasActiveAssessment(false);
+      }
+    }
+  }, [user, session, authLoading]);
+
+  const checkExistingProgress = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_AUTH_API_URL}/user/progress`, {
+        headers: {
+          'Authorization': `Bearer ${session?.access_token}`,
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache'
+        }
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Progress check:', data); // Debug log
+        // Set hasActiveAssessment if user has answered at least 1 question but less than 200
+        if (data.totalResponses > 0 && data.totalResponses < 200) {
+          setHasActiveAssessment(true);
+          console.log('Set hasActiveAssessment to true'); // Debug log
+        } else {
+          setHasActiveAssessment(false);
+        }
+      }
+    } catch (err) {
+      console.error('Failed to check progress:', err);
+    }
+  };
+
   const handleStartTest = async () => {
     try {
       setError(null);
-      setAppState('instructions');
+      
+      // Check if user is logged in
+      if (!user) {
+        setShowSignupModal(true);
+      } else {
+        setAppState('instructions');
+      }
     } catch (err) {
       setError('Failed to start test. Please try again.');
     }
+  };
+
+  const handleSignupSuccess = () => {
+    setShowSignupModal(false);
+    setAppState('instructions');
+  };
+
+  const handleSignupSkip = () => {
+    setShowSignupModal(false);
+    setAppState('instructions');
   };
 
   const handleBeginAssessment = async () => {
     try {
       setError(null);
       setAppState('processing');
-      const data = await api.startAssessment();
+      
+      // First load questions - use user ID as seed for consistent order
+      const userSeed = user?.id || undefined;
+      const data = await api.startAssessment(userSeed);
       setQuestions(data.questions);
+      
+      // Then load existing responses if user is logged in
+      if (user && session) {
+        const savedResponses = await fetchSavedResponses();
+        console.log('Loaded saved responses:', savedResponses.length); // Debug log
+        
+        if (savedResponses && savedResponses.length > 0) {
+          setResponses(savedResponses);
+          // Calculate starting index based on saved responses
+          const lastAnsweredIndex = savedResponses.length - 1;
+          setCurrentQuestionIndex(Math.min(lastAnsweredIndex + 1, data.questions.length - 1));
+        }
+      }
+      
       setAppState('test');
     } catch (err) {
       setError('Failed to load questions. Please try again.');
@@ -44,13 +133,52 @@ function App() {
     }
   };
 
+  const fetchSavedResponses = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_AUTH_API_URL}/responses/all`, {
+        headers: {
+          'Authorization': `Bearer ${session?.access_token}`,
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache'
+        }
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Fetched responses from API:', data); // Debug log
+        
+        return data.responses.map((r: any) => ({
+          question_id: r.questionId,
+          response_value: r.responseValue,
+          selected_option: r.selectedOption
+        }));
+      }
+    } catch (err) {
+      console.error('Failed to fetch saved responses:', err);
+    }
+    return [];
+  };
+
   const handleAnswer = (response: QuestionResponse) => {
-    setResponses([...responses, response]);
+    const updatedResponses = [...responses, response];
+    setResponses(updatedResponses);
+    
+    // Save response if user is logged in
+    if (user && session) {
+      const question = questions.find(q => q.id === response.question_id);
+      if (question) {
+        queueResponse({
+          questionId: response.question_id,
+          responseValue: question.response_type === 'likert_7' || question.response_type === 'likert_5' ? response.response_value : undefined,
+          selectedOption: question.response_type === 'forced_choice' ? response.selected_option : undefined
+        });
+      }
+    }
     
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      submitAssessment([...responses, response]);
+      submitAssessment(updatedResponses);
     }
   };
 
@@ -72,6 +200,20 @@ function App() {
     const finalResponses = [...filteredResponses, ...newResponses];
     setResponses(finalResponses);
     
+    // Save responses if user is logged in
+    if (user && session) {
+      newResponses.forEach(response => {
+        const question = questions.find(q => q.id === response.question_id);
+        if (question) {
+          queueResponse({
+            questionId: response.question_id,
+            responseValue: question.response_type === 'likert_7' || question.response_type === 'likert_5' ? response.response_value : undefined,
+            selectedOption: question.response_type === 'forced_choice' ? response.selected_option : undefined
+          });
+        }
+      });
+    }
+    
     if (pageEnd < questions.length) {
       setCurrentQuestionIndex(pageEnd);
     } else {
@@ -89,6 +231,12 @@ function App() {
   const submitAssessment = async (allResponses: QuestionResponse[]) => {
     try {
       setAppState('processing');
+      
+      // Save any pending responses before submitting
+      if (user && session) {
+        await saveImmediately();
+      }
+      
       const results = await api.submitAssessment(allResponses);
       setResults(results);
       setAppState('results');
@@ -117,7 +265,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-16">
       <AnimatePresence mode="wait">
         {appState === 'landing' && (
           <motion.div
@@ -151,6 +299,38 @@ function App() {
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.25 }}
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto"
+              >
+                <h2 className="text-xl font-semibold text-gray-800 mb-4">Why Take This Assessment?</h2>
+                <ul className="text-left space-y-3 text-gray-600">
+                  <li className="flex items-start">
+                    <span className="text-primary-500 mr-2 mt-1">✓</span>
+                    <span>Gain deep insights into your personality using scientifically validated methods</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary-500 mr-2 mt-1">✓</span>
+                    <span>Understand your cognitive preferences and decision-making style</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary-500 mr-2 mt-1">✓</span>
+                    <span>Discover your Jungian archetypes and psychological patterns</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary-500 mr-2 mt-1">✓</span>
+                    <span>Get personalized development suggestions based on your results</span>
+                  </li>
+                </ul>
+                {user && (
+                  <p className="text-sm text-gray-500 mt-4">
+                    Your progress will be automatically saved as you answer questions.
+                  </p>
+                )}
+              </motion.div>
+              
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
                 className="space-y-4"
               >
@@ -158,7 +338,10 @@ function App() {
                   onClick={handleStartTest}
                   className="btn-primary text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
                 >
-                  Begin Your Journey
+                  {(() => {
+                    console.log('Button render - user:', !!user, 'hasActiveAssessment:', hasActiveAssessment);
+                    return user && hasActiveAssessment ? 'Continue Your Journey' : 'Begin Your Journey';
+                  })()}
                 </button>
                 
                 <div className="flex flex-wrap justify-center gap-4 mt-8 text-sm text-gray-500">
@@ -242,7 +425,47 @@ function App() {
           {error}
         </div>
       )}
+
+      <SignupModal
+        isOpen={showSignupModal}
+        onClose={() => setShowSignupModal(false)}
+        onSkip={handleSignupSkip}
+        onSuccess={handleSignupSuccess}
+      />
+
+      {/* Save status indicator */}
+      {user && saveStatus.isSaving && (
+        <div className="fixed bottom-4 left-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2">
+          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+          <span className="text-sm">Saving...</span>
+        </div>
+      )}
+      
+      {user && saveStatus.lastSaved && !saveStatus.isSaving && (
+        <div className="fixed bottom-4 left-4 bg-green-800 text-white px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          <span className="text-sm">Saved</span>
+        </div>
+      )}
     </div>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<MainAssessment />} />
+        <Route path="/account" element={<MyAccount />} />
+        <Route path="/my-reports" element={<MyReports />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/results/:sessionId" element={<ResultsWrapper />} />
+      </Routes>
+    </>
   );
 }
 
