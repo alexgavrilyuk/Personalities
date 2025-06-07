@@ -38,6 +38,50 @@ const getUserResponses = async (userId) => {
   return data;
 };
 
+// New function to get responses by assessment type
+const getUserResponsesByType = async (userId, assessmentType = 'core') => {
+  const client = supabaseAdmin || supabase;
+  const { data, error } = await client
+    .from('user_responses')
+    .select('*')
+    .eq('user_id', userId)
+    .eq('assessment_type', assessmentType)
+    .order('created_at', { ascending: true });
+  
+  if (error) throw error;
+  return data;
+};
+
+// New function to get user completions
+const getUserCompletions = async (userId) => {
+  const client = supabaseAdmin || supabase;
+  const { data, error } = await client
+    .from('user_completions')
+    .select('*')
+    .eq('user_id', userId);
+  
+  if (error) throw error;
+  return data || [];
+};
+
+// New function to mark assessment as complete
+const markAssessmentComplete = async (userId, assessmentType, responseCount) => {
+  const client = supabaseAdmin || supabase;
+  const { data, error } = await client
+    .from('user_completions')
+    .upsert({
+      user_id: userId,
+      assessment_type: assessmentType,
+      response_count: responseCount,
+      completed_at: new Date().toISOString()
+    }, {
+      onConflict: 'user_id,assessment_type'
+    });
+  
+  if (error) throw error;
+  return data;
+};
+
 const saveUserResponse = async (userId, questionId, responseValue, selectedOption) => {
   const client = supabaseAdmin || supabase;
   const { data, error } = await client
@@ -56,6 +100,7 @@ const saveUserResponse = async (userId, questionId, responseValue, selectedOptio
   return data;
 };
 
+// DEPRECATED: Session-related functions (kept for backward compatibility)
 const getAssessmentSession = async (userId) => {
   const client = supabaseAdmin || supabase;
   const { data, error } = await client
@@ -102,6 +147,9 @@ module.exports = {
   supabase,
   supabaseAdmin,
   getUserResponses,
+  getUserResponsesByType,
+  getUserCompletions,
+  markAssessmentComplete,
   saveUserResponse,
   getAssessmentSession,
   createAssessmentSession,

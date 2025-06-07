@@ -12,7 +12,10 @@ const Header: React.FC = () => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Support', path: '/support' },
-    ...(user ? [{ name: 'My Account', path: '/account' }] : [])
+    ...(user ? [
+      { name: 'My Profile', path: '/profile' },
+      { name: 'Account', path: '/account' }
+    ] : [])
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -42,12 +45,19 @@ const Header: React.FC = () => {
                 {item.name}
               </Link>
             ))}
-            {user && (
+            {user ? (
               <div className="flex items-center space-x-2 ml-4">
                 <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
                   {user.email?.[0].toUpperCase()}
                 </div>
               </div>
+            ) : (
+              <Link
+                to="/login"
+                className="ml-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+              >
+                Log In
+              </Link>
             )}
           </div>
 
@@ -91,10 +101,18 @@ const Header: React.FC = () => {
                   {item.name}
                 </Link>
               ))}
-              {user && (
+              {user ? (
                 <div className="px-3 py-2 text-sm text-gray-400">
                   Signed in as {user.email}
                 </div>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block mx-3 my-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-lg text-center font-medium"
+                >
+                  Log In
+                </Link>
               )}
             </div>
           </motion.div>

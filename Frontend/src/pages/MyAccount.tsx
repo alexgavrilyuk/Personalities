@@ -34,7 +34,7 @@ const MyAccount: React.FC = () => {
   };
 
   if (!user) {
-    navigate('/');
+    navigate('/login');
     return null;
   }
 
@@ -111,15 +111,15 @@ const MyAccount: React.FC = () => {
             )}
           </div>
 
-          {/* My Reports */}
+          {/* My Profile */}
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">My Reports</h2>
-            <p className="text-gray-400 mb-4">View your completed personality assessments</p>
+            <h2 className="text-xl font-semibold mb-4">My Profile</h2>
+            <p className="text-gray-400 mb-4">View your completed personality assessments and reports</p>
             <button
-              onClick={() => navigate('/my-reports')}
+              onClick={() => navigate('/profile')}
               className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
             >
-              View My Reports
+              View My Profile
             </button>
           </div>
 

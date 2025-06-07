@@ -74,7 +74,7 @@ PersonalitiesTwo/
 │   │   │   └── useResponseSaver.ts
 │   │   ├── pages/
 │   │   │   ├── MyAccount.tsx
-│   │   │   ├── MyReports.tsx
+│   │   │   ├── MyProfile.tsx
 │   │   │   ├── About.tsx
 │   │   │   └── Support.tsx
 │   │   ├── types/
@@ -169,13 +169,25 @@ CREATE TABLE user_responses (
   question_id VARCHAR(20) NOT NULL,
   response_value INTEGER CHECK (response_value >= 1 AND response_value <= 7),
   selected_option CHAR(1) CHECK (selected_option IN ('a', 'b')),
+  assessment_type VARCHAR(50) DEFAULT 'core' NOT NULL,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW(),
-  UNIQUE(user_id, question_id)
+  UNIQUE(user_id, question_id, assessment_type)
 );
 ```
 
-#### assessment_sessions
+#### user_completions
+```sql
+CREATE TABLE user_completions (
+  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+  assessment_type VARCHAR(50) NOT NULL,
+  completed_at TIMESTAMPTZ DEFAULT NOW(),
+  response_count INTEGER NOT NULL,
+  PRIMARY KEY (user_id, assessment_type)
+);
+```
+
+#### assessment_sessions (DEPRECATED - To be removed)
 ```sql
 CREATE TABLE assessment_sessions (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
@@ -188,9 +200,15 @@ CREATE TABLE assessment_sessions (
 ```
 
 ### Row Level Security (RLS)
-- Both tables have RLS enabled
+- All tables have RLS enabled
 - Policy: `auth.uid() = user_id`
 - Backend uses service role key to bypass RLS for server operations
+
+### Database Migration Notes
+- Added `assessment_type` column to support multiple assessment types
+- Created `user_completions` table for simple completion tracking
+- Migrated existing data to mark completed core assessments
+- `assessment_sessions` table deprecated in favor of simpler approach
 
 ## Authentication Flow
 
@@ -399,17 +417,50 @@ services:
 
 ## Future Expansion Guide
 
-### Adding New Question Types
-1. Update `Question` model in both backends
-2. Add new response type handling in Frontend components
-3. Update validation schemas
-4. Extend scoring algorithms
+### Adding New Assessment Types
+The system is now future-proofed to support multiple assessment types:
 
-### Adding Social Features
-1. Extend database schema for sharing
-2. Add API endpoints for social interactions
-3. Implement privacy controls
-4. Update RLS policies
+1. **Database Ready**: 
+   - `assessment_type` column in user_responses
+   - `user_completions` table for tracking
+   - Support for multiple assessments per user
+
+2. **To Add a New Assessment (e.g., "relationships")**:
+   ```sql
+   -- Questions should have IDs like 'REL_001', 'REL_002', etc.
+   -- Frontend: Pass assessmentType='relationships' to API calls
+   -- Backend: Update expected question counts
+   -- BackendPip: Add questions to questions.json with new prefixes
+   ```
+
+3. **Planned Assessment Types**:
+   - Core Personality (current - 200 questions)
+   - Relationships (50 questions)
+   - Career (50 questions)
+   - Leadership (30 questions)
+   - Creativity (30 questions)
+
+### Prerequisites and Dependencies
+```javascript
+// Example: Relationships assessment requires Core completion
+const checkPrerequisites = async (userId, assessmentType) => {
+  if (assessmentType === 'relationships') {
+    const completions = await getUserCompletions(userId);
+    return completions.some(c => c.assessment_type === 'core');
+  }
+  return true;
+};
+```
+
+### Integrated Reporting
+```python
+# BackendPip can accept multiple assessment types
+def generate_integrated_report(responses, assessment_types):
+    # Combine insights from multiple assessments
+    if 'core' in assessment_types and 'relationships' in assessment_types:
+        # Generate relationship insights based on personality type
+        pass
+```
 
 ### Adding Export Functionality
 1. Create PDF generation service

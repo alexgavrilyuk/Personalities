@@ -15,11 +15,11 @@ This repository contains the design and implementation plan for a personality as
 - **No Database**: All processing is in-memory during the session only
 
 ### Critical Constraints
-- NO user authentication or account management
-- NO data persistence beyond the current session  
+- Optional user authentication (works for both anonymous and authenticated users)
+- Response data persisted for authenticated users only
 - NO social features, sharing, or networking
 - NO unnecessary UI complexity
-- ONLY: Take test → Get results
+- Simple flow: Take test → Get results (with optional progress saving)
 
 ### Assessment Structure
 - 200 total questions divided into three layers:
@@ -137,25 +137,43 @@ This repository contains the design and implementation plan for a personality as
 - Mobile-responsive UI with multiple question display
 - Docker containerization
 - Complete API implementation
+- User authentication with Supabase
+- Progress saving and restoration
+- Multiple assessment type support (future-proofed)
+- Simple completion tracking system
 
 ### 🚧 Future Enhancements (Not Implemented)
-- Adaptive testing algorithm
-- Machine learning models for clustering
+- Additional assessment types (relationships, career, etc.)
+- Integrated reports combining multiple assessments
+- Export functionality (PDF/JSON)
 - Multi-language support
 - Advanced visualizations
-- Export functionality (PDF/JSON)
 - Accessibility improvements (WCAG compliance)
 
 ## API Endpoints
 
+### BackendPip (Python)
 1. **POST /api/start-assessment**
    - Returns shuffled questions
-   - No session creation
+   - Accepts optional user_seed for deterministic ordering
 
 2. **POST /api/submit-assessment**
    - Processes responses
    - Returns complete results
    - Minimum 160 responses required
+
+### Backend (Node.js)
+1. **GET /api/user/progress?assessmentType=core**
+   - Returns current progress for specified assessment type
+
+2. **GET /api/user/completions**
+   - Returns list of completed assessments
+
+3. **GET /api/user/report/:assessmentType**
+   - Generates report for completed assessment
+
+4. **POST /api/responses/batch**
+   - Saves multiple responses with assessment_type
 
 ## Environment Variables
 

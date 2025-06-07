@@ -5,8 +5,11 @@ const { authenticateUser } = require('../middleware/auth');
 const { 
   supabase,
   supabaseAdmin, 
-  getUserResponses, 
+  getUserResponses,
+  getUserResponsesByType,
   saveUserResponse,
+  getUserCompletions,
+  markAssessmentComplete,
   getAssessmentSession,
   createAssessmentSession,
   updateAssessmentSession
@@ -60,7 +63,6 @@ router.post('/save', async (req, res, next) => {
 // Save multiple responses (batch)
 router.post('/batch', async (req, res, next) => {
   try {
-    // Validate request body
     const { error: validationError, value } = batchResponsesSchema.validate(req.body.responses);
     if (validationError) {
       return next(validationError);
@@ -68,52 +70,57 @@ router.post('/batch', async (req, res, next) => {
     
     const userId = req.user.id;
     const responses = value;
+    const assessmentType = 'core'; // Hardcoded for now, will be dynamic later
     
     console.log(`Batch save: ${responses.length} responses for user ${userId}`);
     
-    // Get or create assessment session
-    let session = await getAssessmentSession(userId);
-    if (!session) {
-      session = await createAssessmentSession(userId);
-    }
-    
-    // Prepare batch insert data
+    // Prepare batch insert data with assessment_type
     const batchData = responses.map(response => ({
       user_id: userId,
       question_id: response.questionId,
       response_value: response.responseValue || null,
       selected_option: response.selectedOption || null,
+      assessment_type: assessmentType,
       updated_at: new Date().toISOString()
     }));
     
-    // Batch upsert - use admin client to bypass RLS
+    // Batch upsert
     const client = supabaseAdmin || supabase;
     const { error } = await client
       .from('user_responses')
       .upsert(batchData, {
-        onConflict: 'user_id,question_id'
+        onConflict: 'user_id,question_id,assessment_type'
       });
     
     if (error) {
       return next(error);
     }
     
-    // Update session progress
-    const { count } = await client
+    // Get actual count for this assessment type
+    const { count, error: countError } = await client
       .from('user_responses')
       .select('*', { count: 'exact', head: true })
-      .eq('user_id', userId);
+      .eq('user_id', userId)
+      .eq('assessment_type', assessmentType);
     
-    const lastQuestionId = responses[responses.length - 1].questionId;
-    await updateAssessmentSession(session.id, {
-      total_responses: count,
-      last_question_index: parseInt(lastQuestionId.substring(1))
-    });
+    if (countError) {
+      console.error('Error getting response count:', countError);
+    }
+    
+    const totalResponses = count || 0;
+    console.log(`Total responses after save: ${totalResponses}`);
+    
+    // Check if assessment is now complete
+    if (assessmentType === 'core' && totalResponses === 200) {
+      await markAssessmentComplete(userId, assessmentType, totalResponses);
+      console.log(`Marked ${assessmentType} assessment as complete for user ${userId}`);
+    }
     
     res.json({
       success: true,
       savedCount: responses.length,
-      totalResponses: count
+      totalResponses: totalResponses,
+      assessmentType: assessmentType
     });
   } catch (error) {
     next(error);
@@ -124,7 +131,8 @@ router.post('/batch', async (req, res, next) => {
 router.get('/all', async (req, res, next) => {
   try {
     const userId = req.user.id;
-    const responses = await getUserResponses(userId);
+    const assessmentType = req.query.assessmentType || 'core'; // Support filtering by type
+    const responses = await getUserResponsesByType(userId, assessmentType);
     
     res.json({
       responses: responses.map(r => ({
@@ -132,7 +140,8 @@ router.get('/all', async (req, res, next) => {
         responseValue: r.response_value,
         selectedOption: r.selected_option
       })),
-      count: responses.length
+      count: responses.length,
+      assessmentType: assessmentType
     });
   } catch (error) {
     next(error);

@@ -6,7 +6,7 @@ import LoadingScreen from './LoadingScreen';
 import { AssessmentResults } from '../types/assessment';
 
 const ResultsWrapper: React.FC = () => {
-  const { sessionId } = useParams<{ sessionId: string }>();
+  const { assessmentType } = useParams<{ assessmentType?: string }>();
   const { user, session } = useAuth();
   const navigate = useNavigate();
   const [results, setResults] = useState<AssessmentResults | null>(null);
@@ -14,17 +14,18 @@ const ResultsWrapper: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!user || !session || !sessionId) {
-      navigate('/');
+    if (!user || !session) {
+      navigate('/login');
       return;
     }
 
     fetchResults();
-  }, [user, session, sessionId, navigate]);
+  }, [user, session, assessmentType, navigate]);
 
   const fetchResults = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_AUTH_API_URL}/responses/report/${sessionId}`, {
+      const type = assessmentType || 'core';
+      const response = await fetch(`${process.env.REACT_APP_AUTH_API_URL}/user/report/${type}`, {
         headers: {
           'Authorization': `Bearer ${session?.access_token}`
         }
@@ -55,10 +56,10 @@ const ResultsWrapper: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Error Loading Results</h2>
           <p className="text-gray-600 mb-6">{error}</p>
           <button
-            onClick={() => navigate('/my-reports')}
+            onClick={() => navigate('/profile')}
             className="btn-primary"
           >
-            Back to My Reports
+            Back to My Profile
           </button>
         </div>
       </div>

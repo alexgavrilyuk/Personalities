@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const { authenticateUser } = require('../middleware/auth');
-const { supabase, getUserResponses, getAssessmentSession } = require('../services/supabaseClient');
+const { 
+  supabase, 
+  getUserResponsesByType, 
+  getUserCompletions 
+} = require('../services/supabaseClient');
 const { profileUpdateSchema } = require('../utils/validators');
+const axios = require('axios');
 
 // All user routes require authentication
 router.use(authenticateUser);
@@ -72,53 +77,92 @@ router.put('/profile', async (req, res, next) => {
 router.get('/progress', async (req, res, next) => {
   try {
     const userId = req.user.id;
+    const assessmentType = req.query.assessmentType || 'core';
     
-    // Get user responses count - need to use getUserResponses helper
-    console.log('Checking progress for user:', userId);
-    const responses = await getUserResponses(userId);
+    // Get responses for specific assessment type
+    const responses = await getUserResponsesByType(userId, assessmentType);
     const responsesCount = responses.length;
-    console.log('Found responses:', responsesCount);
     
-    // Get active assessment session
-    const session = await getAssessmentSession(userId);
+    // Get completion status
+    const completions = await getUserCompletions(userId);
+    const isComplete = completions.some(c => c.assessment_type === assessmentType);
+    
+    // Calculate expected question count (hardcoded for now)
+    const expectedCount = assessmentType === 'core' ? 200 : 50;
     
     res.json({
-      totalResponses: responsesCount || 0,
-      completionPercentage: Math.round(((responsesCount || 0) / 200) * 100),
-      lastQuestionIndex: session?.last_question_index || 0,
-      hasActiveSession: !!session,
-      sessionId: session?.id || null
+      totalResponses: responsesCount,
+      completionPercentage: Math.round((responsesCount / expectedCount) * 100),
+      isComplete: isComplete,
+      assessmentType: assessmentType,
+      expectedQuestions: expectedCount
     });
   } catch (error) {
     next(error);
   }
 });
 
-// Get all completed assessments
-router.get('/assessments', async (req, res, next) => {
+// Get user completions
+router.get('/completions', async (req, res, next) => {
   try {
     const userId = req.user.id;
-    
-    // Get all assessment sessions
-    const { data: sessions, error } = await supabase
-      .from('assessment_sessions')
-      .select('*')
-      .eq('user_id', userId)
-      .order('started_at', { ascending: false });
-    
-    if (error) {
-      return next(error);
-    }
+    const completions = await getUserCompletions(userId);
     
     res.json({
-      assessments: sessions.map(session => ({
-        id: session.id,
-        startedAt: session.started_at,
-        completedAt: session.completed_at,
-        totalResponses: session.total_responses,
-        isComplete: session.total_responses >= 160
+      completions: completions.map(c => ({
+        assessmentType: c.assessment_type,
+        completedAt: c.completed_at,
+        responseCount: c.response_count
       }))
     });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Get report for completed assessment
+router.get('/report/:assessmentType?', async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const assessmentType = req.params.assessmentType || 'core';
+    
+    // Check if assessment is complete
+    const completions = await getUserCompletions(userId);
+    const completion = completions.find(c => c.assessment_type === assessmentType);
+    
+    if (!completion) {
+      return res.status(400).json({ 
+        error: `${assessmentType} assessment not completed`
+      });
+    }
+    
+    // Get all responses for this assessment type
+    const responses = await getUserResponsesByType(userId, assessmentType);
+    
+    // Call BackendPip to generate report
+    try {
+      const backendPipUrl = process.env.BACKEND_PIP_URL || 'http://localhost:8000';
+      const { data: report } = await axios.post(`${backendPipUrl}/api/submit-assessment`, {
+        responses: responses.map(r => ({
+          question_id: r.question_id,
+          response_value: r.response_value,
+          selected_option: r.selected_option
+        })),
+        assessment_types: [assessmentType] // Future: could be ['core', 'relationships']
+      });
+      
+      res.json({
+        report,
+        assessmentType,
+        completedAt: completion.completed_at,
+        generatedAt: new Date().toISOString()
+      });
+    } catch (backendError) {
+      console.error('BackendPip error:', backendError);
+      return res.status(503).json({ 
+        error: 'Assessment processing service unavailable' 
+      });
+    }
   } catch (error) {
     next(error);
   }

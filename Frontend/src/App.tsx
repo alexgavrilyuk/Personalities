@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import TestInstructions from './components/TestInstructions';
 import QuestionDisplay from './components/QuestionDisplay';
@@ -11,9 +11,10 @@ import LoadingScreen from './components/LoadingScreen';
 import Header from './components/Header';
 import SignupModal from './components/auth/SignupModal';
 import MyAccount from './pages/MyAccount';
-import MyReports from './pages/MyReports';
+import MyProfile from './pages/MyProfile';
 import About from './pages/About';
 import Support from './pages/Support';
+import Login from './pages/Login';
 import { api } from './utils/api';
 import { Question, QuestionResponse, AssessmentResults } from './types/assessment';
 import { useAuth } from './contexts/AuthContext';
@@ -54,7 +55,7 @@ function MainAssessment() {
 
   const checkExistingProgress = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_AUTH_API_URL}/user/progress`, {
+      const response = await fetch(`${process.env.REACT_APP_AUTH_API_URL}/user/progress?assessmentType=core`, {
         headers: {
           'Authorization': `Bearer ${session?.access_token}`,
           'Cache-Control': 'no-cache',
@@ -65,8 +66,8 @@ function MainAssessment() {
       if (response.ok) {
         const data = await response.json();
         console.log('Progress check:', data); // Debug log
-        // Set hasActiveAssessment if user has answered at least 1 question but less than 200
-        if (data.totalResponses > 0 && data.totalResponses < 200) {
+        // Assessment is active if started but not complete
+        if (data.totalResponses > 0 && !data.isComplete) {
           setHasActiveAssessment(true);
           console.log('Set hasActiveAssessment to true'); // Debug log
         } else {
@@ -344,6 +345,15 @@ function MainAssessment() {
                   })()}
                 </button>
                 
+                {!user && (
+                  <p className="mt-4 text-sm text-gray-600">
+                    Already have an account?{' '}
+                    <Link to="/login" className="text-primary-600 hover:text-primary-700 underline">
+                      Log in
+                    </Link>
+                  </p>
+                )}
+                
                 <div className="flex flex-wrap justify-center gap-4 mt-8 text-sm text-gray-500">
                   <span className="flex items-center gap-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -459,11 +469,12 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<MainAssessment />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/account" element={<MyAccount />} />
-        <Route path="/my-reports" element={<MyReports />} />
+        <Route path="/profile" element={<MyProfile />} />
         <Route path="/about" element={<About />} />
         <Route path="/support" element={<Support />} />
-        <Route path="/results/:sessionId" element={<ResultsWrapper />} />
+        <Route path="/report/:assessmentType?" element={<ResultsWrapper />} />
       </Routes>
     </>
   );

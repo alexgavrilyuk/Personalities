@@ -299,20 +299,25 @@ Get assessment progress for current user.
 Authorization: Bearer <access_token>
 ```
 
+**Query Parameters**
+```
+assessmentType: string (optional, defaults to 'core')
+```
+
 **Response**
 ```json
 {
   "totalResponses": 85,
   "completionPercentage": 42,
-  "lastQuestionIndex": 84,
-  "hasActiveSession": true,
-  "sessionId": "uuid"
+  "isComplete": false,
+  "assessmentType": "core",
+  "expectedQuestions": 200
 }
 ```
 
-#### `GET /api/user/assessments`
+#### `GET /api/user/completions`
 
-Get all assessments for current user.
+Get all completed assessments for current user.
 
 **Request Header**
 ```
@@ -322,22 +327,39 @@ Authorization: Bearer <access_token>
 **Response**
 ```json
 {
-  "assessments": [
+  "completions": [
     {
-      "id": "uuid",
-      "startedAt": "2024-01-07T12:00:00Z",
+      "assessmentType": "core",
       "completedAt": "2024-01-07T12:30:00Z",
-      "totalResponses": 200,
-      "isComplete": true
-    },
-    {
-      "id": "uuid",
-      "startedAt": "2024-01-08T10:00:00Z",
-      "completedAt": null,
-      "totalResponses": 85,
-      "isComplete": false
+      "responseCount": 200
     }
   ]
+}
+```
+
+#### `GET /api/user/report/:assessmentType?`
+
+Generate report for completed assessment.
+
+**Request Header**
+```
+Authorization: Bearer <access_token>
+```
+
+**Parameters**
+```
+assessmentType: string (optional, defaults to 'core')
+```
+
+**Response**
+```json
+{
+  "report": {
+    // Full assessment results (see Submit Assessment response)
+  },
+  "assessmentType": "core",
+  "completedAt": "2024-01-07T12:30:00Z",
+  "generatedAt": "2024-01-08T10:00:00Z"
 }
 ```
 
@@ -406,7 +428,8 @@ Authorization: Bearer <access_token>
 {
   "success": true,
   "savedCount": 10,
-  "totalResponses": 95
+  "totalResponses": 95,
+  "assessmentType": "core"
 }
 ```
 
@@ -417,6 +440,11 @@ Get all saved responses for current user.
 **Request Header**
 ```
 Authorization: Bearer <access_token>
+```
+
+**Query Parameters**
+```
+assessmentType: string (optional, defaults to 'core')
 ```
 
 **Response**
@@ -435,7 +463,8 @@ Authorization: Bearer <access_token>
     }
     // ... more responses
   ],
-  "count": 85
+  "count": 95,
+  "assessmentType": "core"
 }
 ```
 
