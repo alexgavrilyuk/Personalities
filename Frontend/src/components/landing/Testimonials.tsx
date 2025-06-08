@@ -1,166 +1,113 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const Testimonials: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   const testimonials = [
     {
-      name: 'Sarah Chen',
+      name: 'Taylor B.',
+      role: 'Creative Director',
+      content: 'The depth of insight was remarkable. Understanding my cognitive functions helped me realize why certain creative processes work better for me than others.',
+      featured: false
+    },
+    {
+      name: 'Samir R.',
       role: 'Software Engineer',
-      content: 'This assessment gave me profound insights into my personality that I had never considered before. The combination of Big Five, MBTI, and Jungian analysis provided a complete picture of who I am.',
-      rating: 5
+      content: 'Finally, a personality assessment that goes beyond surface labels. The integration of Big Five, MBTI, and Jungian psychology gave me a complete picture of myself.',
+      featured: false
     },
     {
-      name: 'Michael Rodriguez',
-      role: 'Marketing Director',
-      content: 'The depth of analysis is incredible. It helped me understand not just my strengths, but also my blind spots and areas for growth. The personalized development suggestions were particularly valuable.',
-      rating: 5
-    },
-    {
-      name: 'Emily Thompson',
+      name: 'Renee L.',
       role: 'Clinical Psychologist',
-      content: 'As a professional in the field, I\'m impressed by the scientific rigor and accuracy of this assessment. It successfully integrates multiple psychological frameworks in a meaningful way.',
-      rating: 5
+      content: 'The scientific rigor is impressive. As a professional, I appreciate how this tool combines validated frameworks into actionable insights.',
+      featured: true
     },
     {
-      name: 'David Kim',
+      name: 'Alex M.',
       role: 'Entrepreneur',
-      content: 'Understanding my cognitive functions and personality type has transformed how I approach business decisions and team building. This tool is invaluable for personal and professional growth.',
-      rating: 5
+      content: 'Understanding my personality clusters and shadow functions was game-changing. I now approach challenges with much more self-awareness.',
+      featured: false
     },
     {
-      name: 'Lisa Anderson',
-      role: 'HR Manager',
-      content: 'The insights from this assessment have helped me become a better leader and communicator. I now understand why I work the way I do and how to leverage my natural strengths.',
-      rating: 5
+      name: 'Jordan K.',
+      role: 'HR Director',
+      content: 'This assessment helped me understand not just who I am, but why I react the way I do. The development suggestions were spot-on and practical.',
+      featured: false
     }
   ];
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-charcoal-50">
+      <div className="container mx-auto px-6 lg:px-16">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-4 mb-8"
+          className="mb-16"
         >
-          <span className="inline-block px-6 py-2 bg-lime-400 text-dark-900 font-semibold rounded-full text-sm">
-            Testimonials
-          </span>
-          <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-dark-900">
-              Hear from Our Community
-            </h2>
-            <p className="text-gray-600 mt-2">
-              Real stories from people who discovered their true selves
-            </p>
-          </div>
+          <p className="text-sm text-charcoal-600 uppercase tracking-wide mb-3">TESTIMONIALS</p>
+          <h2 className="font-serif text-4xl lg:text-6xl text-charcoal-800">
+            What Our Members 
+          </h2>
+          <h2 className="font-serif text-4xl lg:text-6xl text-charcoal-800 italic">
+            Are Saying
+          </h2>
         </motion.div>
 
-        <div className="relative max-w-6xl mx-auto">
-          <div className="bg-dark-900 rounded-3xl p-8 lg:p-12 overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.3 }}
-                className="grid lg:grid-cols-3 gap-8"
-              >
-                {/* Show 3 testimonials on desktop, 1 on mobile */}
-                {[0, 1, 2].map((offset) => {
-                  const index = (currentIndex + offset) % testimonials.length;
-                  const testimonial = testimonials[index];
-                  const isCenter = offset === 1;
-                  
-                  return (
-                    <div
-                      key={index}
-                      className={`${offset !== 0 ? 'hidden lg:block' : ''} ${
-                        isCenter ? 'lg:scale-105' : 'lg:opacity-70'
-                      } transition-all duration-300`}
-                    >
-                      <div className="bg-dark-800 rounded-2xl p-6 border border-lime-400/20">
-                        <div className="flex gap-1 mb-4">
-                          {[...Array(5)].map((_, i) => (
-                            <svg
-                              key={i}
-                              className={`w-5 h-5 ${
-                                i < testimonial.rating ? 'text-lime-400' : 'text-gray-600'
-                              }`}
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                            </svg>
-                          ))}
-                        </div>
-                        
-                        <p className="text-gray-300 mb-6 leading-relaxed">
-                          "{testimonial.content}"
-                        </p>
-                        
-                        <div className="flex items-center gap-3">
-                          <div className="w-12 h-12 bg-gradient-to-br from-lime-400 to-lime-600 rounded-full" />
-                          <div>
-                            <h4 className="text-white font-semibold">{testimonial.name}</h4>
-                            <p className="text-gray-400 text-sm">{testimonial.role}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation */}
-            <div className="flex items-center justify-between mt-8">
-              <button
-                onClick={prevTestimonial}
-                className="p-3 rounded-full bg-dark-800 text-lime-400 hover:bg-dark-700 transition-colors"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-
-              {/* Dots Indicator */}
-              <div className="flex gap-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentIndex
-                        ? 'w-8 bg-lime-400'
-                        : 'bg-gray-600 hover:bg-gray-500'
-                    }`}
-                  />
-                ))}
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`${testimonial.featured ? 'lg:col-span-1 lg:row-span-2' : ''}`}
+            >
+              <div className="bg-white rounded-2xl p-8 h-full flex flex-col">
+                <div className="flex-1">
+                  <p className="text-charcoal-700 leading-relaxed mb-6 text-lg">
+                    "{testimonial.content}"
+                  </p>
+                </div>
+                
+                <div className="pt-4 border-t border-charcoal-100">
+                  <p className="text-charcoal-800 font-medium">
+                    — {testimonial.name}
+                  </p>
+                  <p className="text-charcoal-600 text-sm">
+                    {testimonial.role}
+                  </p>
+                </div>
               </div>
+            </motion.div>
+          ))}
+        </div>
 
-              <button
-                onClick={nextTestimonial}
-                className="p-3 rounded-full bg-dark-800 text-lime-400 hover:bg-dark-700 transition-colors"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-16"
+        >
+          <p className="text-charcoal-600 text-lg">
+            Join thousands who have discovered their authentic selves
+          </p>
+        </motion.div>
+
+        {/* Decorative Elements */}
+        <div className="absolute -z-10">
+          <motion.div 
+            animate={{ rotate: 360 }}
+            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+            className="absolute top-20 right-32"
+          >
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 2 L21 18 L37 17 L22 20 L37 23 L21 22 L20 38 L19 22 L3 23 L18 20 L3 17 L19 18 Z" 
+                stroke="#E5E5E5" strokeWidth="1" />
+            </svg>
+          </motion.div>
         </div>
       </div>
     </section>

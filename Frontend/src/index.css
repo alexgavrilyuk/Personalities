@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +10,7 @@
   }
   
   body {
-    @apply antialiased;
+    @apply antialiased bg-white text-charcoal-800;
   }
   
   /* Custom scrollbar */
@@ -32,35 +34,47 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-medium 
-           hover:bg-primary-700 active:bg-primary-800 
-           transition-colors duration-200 
+    @apply bg-charcoal-800 text-white px-6 py-3 rounded-full font-medium 
+           hover:bg-charcoal-900 active:bg-charcoal-700 
+           transition-all duration-200 
            disabled:opacity-50 disabled:cursor-not-allowed
-           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+           focus:outline-none focus:ring-2 focus:ring-charcoal-500 focus:ring-offset-2;
   }
   
   .btn-secondary {
-    @apply bg-white text-primary-700 px-6 py-3 rounded-lg font-medium 
-           border-2 border-primary-200 
-           hover:bg-primary-50 active:bg-primary-100 
-           transition-colors duration-200 
+    @apply bg-white text-charcoal-800 px-6 py-3 rounded-full font-medium 
+           border border-charcoal-300 
+           hover:bg-charcoal-50 active:bg-charcoal-100 
+           transition-all duration-200 
            disabled:opacity-50 disabled:cursor-not-allowed
-           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+           focus:outline-none focus:ring-2 focus:ring-charcoal-500 focus:ring-offset-2;
+  }
+  
+  .btn-yellow {
+    @apply bg-yellow-500 text-charcoal-800 px-6 py-3 rounded-full font-medium 
+           hover:bg-yellow-400 active:bg-yellow-600 
+           transition-all duration-200 
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2;
   }
   
   /* Mobile optimizations */
   @media (max-width: 768px) {
-    .btn-primary, .btn-secondary {
+    .btn-primary, .btn-secondary, .btn-yellow {
       @apply px-4 py-2.5 text-sm;
     }
   }
   
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6;
+    @apply bg-white rounded-xl shadow-sm border border-charcoal-100 p-6;
+  }
+  
+  .card-yellow {
+    @apply bg-yellow-500 rounded-xl p-6 text-charcoal-800;
   }
   
   .question-card {
-    @apply bg-white rounded-2xl shadow-lg border border-gray-100 p-8
+    @apply bg-white rounded-2xl shadow-sm border border-charcoal-100 p-8
            transform transition-all duration-300;
   }
 }
