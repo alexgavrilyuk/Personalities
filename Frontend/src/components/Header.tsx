@@ -21,13 +21,15 @@ const Header: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg" />
-            <span className="text-white font-semibold text-lg">Personality Assessment</span>
+            <div className="w-10 h-10 bg-dark-900 rounded-xl flex items-center justify-center">
+              <span className="text-lime-400 font-bold text-xl">P</span>
+            </div>
+            <span className="text-dark-900 font-bold text-xl">PersonalityTest</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -36,10 +38,10 @@ const Header: React.FC = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-semibold transition-colors ${
                   isActive(item.path)
-                    ? 'text-white'
-                    : 'text-gray-400 hover:text-white'
+                    ? 'text-dark-900'
+                    : 'text-gray-600 hover:text-dark-900'
                 }`}
               >
                 {item.name}
@@ -47,14 +49,14 @@ const Header: React.FC = () => {
             ))}
             {user ? (
               <div className="flex items-center space-x-2 ml-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
+                <div className="w-10 h-10 bg-lime-400 rounded-full flex items-center justify-center text-dark-900 text-sm font-bold">
                   {user.email?.[0].toUpperCase()}
                 </div>
               </div>
             ) : (
               <Link
                 to="/login"
-                className="ml-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+                className="ml-4 bg-dark-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-dark-800 transition-colors"
               >
                 Log In
               </Link>
@@ -64,7 +66,7 @@ const Header: React.FC = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-gray-400 hover:text-white"
+            className="md:hidden text-dark-900 hover:text-gray-700"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {mobileMenuOpen ? (
@@ -84,7 +86,7 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-gray-900/95 backdrop-blur-md border-b border-gray-800"
+            className="md:hidden bg-white border-b border-gray-200"
           >
             <div className="px-4 py-4 space-y-2">
               {navItems.map((item) => (
@@ -92,24 +94,24 @@ const Header: React.FC = () => {
                   key={item.path}
                   to={item.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  className={`block px-3 py-2 rounded-lg text-base font-medium ${
                     isActive(item.path)
-                      ? 'bg-gray-800 text-white'
-                      : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+                      ? 'bg-lime-50 text-dark-900'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-dark-900'
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
               {user ? (
-                <div className="px-3 py-2 text-sm text-gray-400">
+                <div className="px-3 py-2 text-sm text-gray-600">
                   Signed in as {user.email}
                 </div>
               ) : (
                 <Link
                   to="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block mx-3 my-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-lg text-center font-medium"
+                  className="block mx-3 my-2 bg-dark-900 text-white px-4 py-2 rounded-full text-center font-semibold"
                 >
                   Log In
                 </Link>
