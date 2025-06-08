@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { AUTH_API_BASE_URL } from '../utils/api';
 
 interface Response {
   questionId: string;
@@ -31,8 +32,8 @@ export const useResponseSaver = () => {
 
     try {
       const endpoint = responses.length === 1 
-        ? `${process.env.REACT_APP_AUTH_API_URL}/responses/save`
-        : `${process.env.REACT_APP_AUTH_API_URL}/responses/batch`;
+        ? `${AUTH_API_BASE_URL}/responses/save`
+        : `${AUTH_API_BASE_URL}/responses/batch`;
 
       const body = responses.length === 1 
         ? {

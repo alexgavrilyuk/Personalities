@@ -91,6 +91,47 @@ This repository contains the design and implementation plan for a personality as
    docker-compose -f docker-compose.prod.yml up -d
    ```
 
+### Running on Local Network
+
+To access the application from other devices on your local network (e.g., testing on mobile):
+
+1. **Create Frontend environment file:**
+   ```bash
+   # Frontend/.env.local
+   REACT_APP_API_URL=http://YOUR_LOCAL_IP:8000/api
+   REACT_APP_AUTH_API_URL=http://YOUR_LOCAL_IP:8001/api
+   ```
+
+2. **Start services with network access:**
+   ```bash
+   # Terminal 1: Python Backend
+   cd BackendPip
+   source venv/bin/activate
+   uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+   # Terminal 2: Node.js Backend
+   cd Backend
+   npm start  # Already configured to listen on 0.0.0.0
+
+   # Terminal 3: Frontend
+   cd Frontend
+   npm start  # Will use .env.local configuration
+   ```
+
+3. **Find your local IP:**
+   ```bash
+   # macOS/Linux
+   ifconfig | grep "inet " | grep -v 127.0.0.1
+   
+   # Windows
+   ipconfig | findstr IPv4
+   ```
+
+4. **Access from any device on your network:**
+   - Frontend: `http://YOUR_LOCAL_IP:3000`
+   - Python API: `http://YOUR_LOCAL_IP:8000`
+   - Node.js API: `http://YOUR_LOCAL_IP:8001`
+
 ## Project Structure
 
 ### Documentation

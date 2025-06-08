@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
+import { AUTH_API_BASE_URL } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 
 interface Completion {
@@ -27,7 +28,7 @@ const MyProfile: React.FC = () => {
 
   const fetchCompletions = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_AUTH_API_URL}/user/completions`, {
+      const response = await fetch(`${AUTH_API_BASE_URL}/user/completions`, {
         headers: {
           'Authorization': `Bearer ${session?.access_token}`
         }

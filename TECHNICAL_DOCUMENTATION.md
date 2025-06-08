@@ -397,6 +397,26 @@ REACT_APP_SUPABASE_URL=https://[project].supabase.co
 REACT_APP_SUPABASE_ANON_KEY=[anon_key]
 ```
 
+### Local Network Development
+
+For testing on mobile devices or across your local network:
+
+#### Frontend Configuration (.env.local)
+```
+REACT_APP_API_URL=http://YOUR_LOCAL_IP:8000/api
+REACT_APP_AUTH_API_URL=http://YOUR_LOCAL_IP:8001/api
+```
+
+#### Backend Services
+- **Python Backend**: Already configured with `--host 0.0.0.0` in uvicorn
+- **Node.js Backend**: Configured to listen on `0.0.0.0:8001`
+- **Frontend**: Will automatically use environment variables
+
+#### Important Notes
+- The Frontend now exports `API_BASE_URL` and `AUTH_API_BASE_URL` constants with fallbacks
+- All API calls use these constants to prevent `undefined` URL errors
+- CORS is configured to allow all origins (`*`) in development mode
+
 ### Docker Deployment
 ```yaml
 version: '3.8'

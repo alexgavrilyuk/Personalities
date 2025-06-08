@@ -15,7 +15,7 @@ import MyProfile from './pages/MyProfile';
 import About from './pages/About';
 import Support from './pages/Support';
 import Login from './pages/Login';
-import { api } from './utils/api';
+import { api, AUTH_API_BASE_URL } from './utils/api';
 import { Question, QuestionResponse, AssessmentResults } from './types/assessment';
 import { useAuth } from './contexts/AuthContext';
 import { useResponseSaver } from './hooks/useResponseSaver';
@@ -55,7 +55,7 @@ function MainAssessment() {
 
   const checkExistingProgress = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_AUTH_API_URL}/user/progress?assessmentType=core`, {
+      const response = await fetch(`${AUTH_API_BASE_URL}/user/progress?assessmentType=core`, {
         headers: {
           'Authorization': `Bearer ${session?.access_token}`,
           'Cache-Control': 'no-cache',
@@ -136,7 +136,7 @@ function MainAssessment() {
 
   const fetchSavedResponses = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_AUTH_API_URL}/responses/all`, {
+      const response = await fetch(`${AUTH_API_BASE_URL}/responses/all`, {
         headers: {
           'Authorization': `Bearer ${session?.access_token}`,
           'Cache-Control': 'no-cache',

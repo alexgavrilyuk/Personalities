@@ -88,6 +88,41 @@ From Settings → API:
 
 ## Development Environment
 
+### Local Network Development
+
+To test on mobile devices or other computers on your network:
+
+```bash
+# 1. Find your local IP address
+# macOS/Linux:
+ifconfig | grep "inet " | grep -v 127.0.0.1
+
+# Windows:
+ipconfig | findstr IPv4
+
+# 2. Create Frontend/.env.local with your IP
+echo "REACT_APP_API_URL=http://YOUR_IP:8000/api" > Frontend/.env.local
+echo "REACT_APP_AUTH_API_URL=http://YOUR_IP:8001/api" >> Frontend/.env.local
+
+# 3. Start services with network access
+# Terminal 1: Python Backend
+cd BackendPip
+source venv/bin/activate
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+# Terminal 2: Node.js Backend (already configured for network access)
+cd Backend
+npm start
+
+# Terminal 3: Frontend
+cd Frontend
+npm start
+```
+
+Access from any device on your network:
+- Frontend: `http://YOUR_IP:3000`
+- APIs: `http://YOUR_IP:8000` and `http://YOUR_IP:8001`
+
 ### BackendPip Setup (Python - Without Docker)
 
 ```bash

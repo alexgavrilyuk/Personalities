@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { AUTH_API_BASE_URL } from '../utils/api';
 import ResultsDisplay from './ResultsDisplay';
 import LoadingScreen from './LoadingScreen';
 import { AssessmentResults } from '../types/assessment';
@@ -25,7 +26,7 @@ const ResultsWrapper: React.FC = () => {
   const fetchResults = async () => {
     try {
       const type = assessmentType || 'core';
-      const response = await fetch(`${process.env.REACT_APP_AUTH_API_URL}/user/report/${type}`, {
+      const response = await fetch(`${AUTH_API_BASE_URL}/user/report/${type}`, {
         headers: {
           'Authorization': `Bearer ${session?.access_token}`
         }

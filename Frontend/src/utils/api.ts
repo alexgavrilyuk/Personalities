@@ -1,4 +1,5 @@
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+export const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+export const AUTH_API_BASE_URL = process.env.REACT_APP_AUTH_API_URL || 'http://localhost:8001/api';
 
 export const api = {
   async startAssessment(userSeed?: string, assessmentType: string = 'core') {
