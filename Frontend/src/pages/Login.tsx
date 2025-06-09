@@ -69,141 +69,273 @@ const Login: React.FC = () => {
 
   const passwordStrength = getPasswordStrength(password);
 
+  const accountBenefits = [
+    { icon: '💾', text: 'Save your progress and continue later' },
+    { icon: '📊', text: 'Access your results anytime' },
+    { icon: '📈', text: 'Track your personality development over time' },
+    { icon: '🔓', text: 'Unlock future assessment types' }
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/10 to-gray-900 text-white flex items-center justify-center px-4 pt-16"
+      className="min-h-screen bg-white"
     >
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.1 }}
-        className="w-full max-w-md"
-      >
-        <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-center mb-6">
-            {isSignUp ? 'Create an Account' : 'Welcome Back'}
-          </h2>
-          
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
+      {/* Hero Section */}
+      <section className="min-h-screen flex items-center justify-center px-4 py-20">
+        <div className="w-full max-w-5xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="text-center lg:text-left mb-8">
+                <Link to="/" className="inline-block mb-8">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center gap-2 text-charcoal-600 hover:text-charcoal-800 transition-colors"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 5L7 10L12 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span className="text-sm">Back to Home</span>
+                  </motion.div>
+                </Link>
+                
+                <h1 className="font-serif text-4xl lg:text-5xl text-charcoal-800 mb-4">
+                  {isSignUp ? (
+                    <>Create Your <em>Account</em></>
+                  ) : (
+                    <>Welcome <em>Back</em></>
+                  )}
+                </h1>
+                <p className="text-lg text-charcoal-600">
+                  {isSignUp ? (
+                    'Join thousands discovering their true selves'
+                  ) : (
+                    'Continue your journey of self-discovery'
+                  )}
+                </p>
+              </div>
 
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                placeholder="••••••••"
-                required
-              />
-              
-              {isSignUp && password && (
-                <div className="mt-2">
-                  <div className="flex items-center justify-between text-xs mb-1">
-                    <span className="text-gray-400">Password strength:</span>
-                    <span className={`font-medium ${
-                      passwordStrength.score === 1 ? 'text-red-400' :
-                      passwordStrength.score === 2 ? 'text-yellow-400' :
-                      passwordStrength.score === 3 ? 'text-blue-400' :
-                      'text-green-400'
-                    }`}>
-                      {passwordStrength.label}
-                    </span>
-                  </div>
-                  <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                    <div
-                      className={`h-full transition-all duration-300 ${passwordStrength.color}`}
-                      style={{ width: `${passwordStrength.score * 25}%` }}
+              <div className="bg-white rounded-3xl border border-charcoal-200 p-8">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-charcoal-700 mb-2">
+                      Email Address
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-4 py-3 bg-white border border-charcoal-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
+                      placeholder="you@example.com"
+                      required
                     />
+                  </div>
+
+                  <div>
+                    <label htmlFor="password" className="block text-sm font-medium text-charcoal-700 mb-2">
+                      Password
+                    </label>
+                    <input
+                      id="password"
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="w-full px-4 py-3 bg-white border border-charcoal-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
+                      placeholder="••••••••"
+                      required
+                    />
+                    
+                    {isSignUp && password && (
+                      <div className="mt-3">
+                        <div className="flex items-center justify-between text-xs mb-2">
+                          <span className="text-charcoal-600">Password strength:</span>
+                          <span className={`font-medium ${
+                            passwordStrength.score === 1 ? 'text-red-600' :
+                            passwordStrength.score === 2 ? 'text-yellow-600' :
+                            passwordStrength.score === 3 ? 'text-blue-600' :
+                            'text-green-600'
+                          }`}>
+                            {passwordStrength.label}
+                          </span>
+                        </div>
+                        <div className="h-2 bg-charcoal-100 rounded-full overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: `${passwordStrength.score * 25}%` }}
+                            transition={{ duration: 0.3 }}
+                            className={`h-full ${
+                              passwordStrength.score === 1 ? 'bg-red-500' :
+                              passwordStrength.score === 2 ? 'bg-yellow-500' :
+                              passwordStrength.score === 3 ? 'bg-blue-500' :
+                              'bg-green-500'
+                            }`}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {isSignUp && (
+                    <div>
+                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-charcoal-700 mb-2">
+                        Confirm Password
+                      </label>
+                      <input
+                        id="confirmPassword"
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        className="w-full px-4 py-3 bg-white border border-charcoal-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
+                        placeholder="••••••••"
+                        required
+                      />
+                    </div>
+                  )}
+
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 text-sm"
+                    >
+                      {error}
+                    </motion.div>
+                  )}
+
+                  <motion.button
+                    type="submit"
+                    disabled={loading}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full btn-primary py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {loading ? 'Loading...' : (isSignUp ? 'Create Account' : 'Log In')}
+                  </motion.button>
+                </form>
+
+                <div className="mt-6 text-center">
+                  <button
+                    onClick={() => {
+                      setIsSignUp(!isSignUp);
+                      setError('');
+                      setPassword('');
+                      setConfirmPassword('');
+                    }}
+                    className="text-charcoal-600 hover:text-charcoal-800 text-sm transition-colors"
+                  >
+                    {isSignUp ? 'Already have an account? Log in' : "Don't have an account? Sign up"}
+                  </button>
+                </div>
+
+                <div className="mt-4 text-center">
+                  <Link to="/" className="text-charcoal-500 hover:text-charcoal-700 text-sm transition-colors">
+                    Continue without account →
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right side - Benefits/Illustration */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="hidden lg:block"
+            >
+              {isSignUp ? (
+                <div className="bg-yellow-500 rounded-3xl p-10">
+                  <h3 className="font-serif text-2xl text-charcoal-800 mb-8 italic">
+                    Why Create an Account?
+                  </h3>
+                  <div className="space-y-4">
+                    {accountBenefits.map((benefit, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                        className="flex items-start gap-4"
+                      >
+                        <span className="text-2xl">{benefit.icon}</span>
+                        <p className="text-charcoal-700 flex-1">{benefit.text}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                  
+                  {/* Decorative element */}
+                  <div className="mt-10 flex justify-center">
+                    <svg viewBox="0 0 200 200" className="w-32 h-32" xmlns="http://www.w3.org/2000/svg">
+                      <g stroke="#1A1A1A" strokeWidth="2" fill="none">
+                        <circle cx="100" cy="100" r="80" strokeDasharray="5,5" opacity="0.3" />
+                        <circle cx="100" cy="100" r="60" />
+                        <circle cx="100" cy="100" r="40" strokeDasharray="3,3" opacity="0.5" />
+                        <circle cx="100" cy="100" r="20" fill="#1A1A1A" />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-charcoal-50 rounded-3xl p-10 relative">
+                  <h3 className="font-serif text-2xl text-charcoal-800 mb-4 italic">
+                    Continue Your Journey
+                  </h3>
+                  <p className="text-charcoal-600 mb-8">
+                    Pick up where you left off and dive deeper into understanding yourself.
+                  </p>
+                  
+                  {/* Illustration */}
+                  <div className="relative">
+                    <svg viewBox="0 0 300 300" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                      <g stroke="#1A1A1A" strokeWidth="2" fill="none">
+                        {/* Journey path */}
+                        <path d="M50 250 Q100 200 150 150 T250 50" strokeDasharray="5,5" opacity="0.3" />
+                        
+                        {/* Milestone circles */}
+                        <circle cx="50" cy="250" r="10" fill="#F5D659" />
+                        <circle cx="100" cy="200" r="8" fill="#1A1A1A" />
+                        <circle cx="150" cy="150" r="12" fill="#F5D659" />
+                        <circle cx="200" cy="100" r="8" fill="#1A1A1A" />
+                        <circle cx="250" cy="50" r="15" strokeWidth="3" />
+                        
+                        {/* Person icon at current position */}
+                        <g transform="translate(150, 150)">
+                          <circle cx="0" cy="-10" r="6" fill="#1A1A1A" />
+                          <path d="M0 -4 L0 10" />
+                          <path d="M0 0 L-8 8 M0 0 L8 8" />
+                          <path d="M0 10 L-6 20 M0 10 L6 20" />
+                        </g>
+                        
+                        {/* Stars */}
+                        <path d="M80 80 L82 88 L90 86 L84 92 L90 98 L82 96 L80 104 L78 96 L70 98 L76 92 L70 86 L78 88 Z" fill="#F5D659" opacity="0.5" />
+                        <path d="M220 180 L221 184 L225 183 L222 186 L225 189 L221 188 L220 192 L219 188 L215 189 L218 186 L215 183 L219 184 Z" fill="#1A1A1A" />
+                      </g>
+                    </svg>
+                  </div>
+                  
+                  {/* Stats */}
+                  <div className="mt-8 grid grid-cols-2 gap-4">
+                    <div className="bg-white rounded-xl p-4 text-center">
+                      <div className="font-serif text-3xl text-charcoal-800">93%</div>
+                      <div className="text-sm text-charcoal-600">accuracy rate</div>
+                    </div>
+                    <div className="bg-white rounded-xl p-4 text-center">
+                      <div className="font-serif text-3xl text-charcoal-800">1M+</div>
+                      <div className="text-sm text-charcoal-600">insights delivered</div>
+                    </div>
                   </div>
                 </div>
               )}
-            </div>
-
-            {isSignUp && (
-              <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-2">
-                  Confirm Password
-                </label>
-                <input
-                  id="confirmPassword"
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="••••••••"
-                  required
-                />
-              </div>
-            )}
-
-            {error && (
-              <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-3 text-red-400 text-sm">
-                {error}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? 'Loading...' : (isSignUp ? 'Sign Up' : 'Log In')}
-            </button>
-          </form>
-
-          <div className="mt-6 text-center">
-            <button
-              onClick={() => {
-                setIsSignUp(!isSignUp);
-                setError('');
-                setPassword('');
-                setConfirmPassword('');
-              }}
-              className="text-purple-400 hover:text-purple-300 text-sm"
-            >
-              {isSignUp ? 'Already have an account? Log in' : "Don't have an account? Sign up"}
-            </button>
+            </motion.div>
           </div>
-
-          <div className="mt-4 text-center">
-            <Link to="/" className="text-gray-400 hover:text-gray-300 text-sm">
-              Continue without account →
-            </Link>
-          </div>
-
-          {isSignUp && (
-            <div className="mt-6 bg-gray-700/50 rounded-lg p-4">
-              <h3 className="text-sm font-semibold text-gray-300 mb-2">Why create an account?</h3>
-              <ul className="text-xs text-gray-400 space-y-1">
-                <li>• Save your progress and continue later</li>
-                <li>• Access your results anytime</li>
-                <li>• Track your personality development over time</li>
-                <li>• Unlock future assessment types</li>
-              </ul>
-            </div>
-          )}
         </div>
-      </motion.div>
+      </section>
     </motion.div>
   );
 };

@@ -17,13 +17,28 @@ const PORT = process.env.PORT || 8001;
 app.use(helmet());
 
 // CORS configuration
-app.use(cors({
-  origin: [
-    process.env.FRONTEND_URL || 'http://localhost:3000',
-    process.env.BACKEND_PIP_URL || 'http://localhost:8000'
-  ],
+const corsOptions = {
+  origin: function (origin, callback) {
+    // In development, allow any origin
+    if (process.env.NODE_ENV === 'development') {
+      callback(null, true);
+    } else {
+      // In production, use whitelist
+      const whitelist = [
+        process.env.FRONTEND_URL || 'http://localhost:3000',
+        process.env.BACKEND_PIP_URL || 'http://localhost:8000'
+      ];
+      if (!origin || whitelist.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    }
+  },
   credentials: true
-}));
+};
+
+app.use(cors(corsOptions));
 
 // Logging
 app.use(morgan('combined'));

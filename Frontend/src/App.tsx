@@ -11,7 +11,6 @@ import LoadingScreen from './components/LoadingScreen';
 import Header from './components/Header';
 import SignupModal from './components/auth/SignupModal';
 import MyAccount from './pages/MyAccount';
-import MyProfile from './pages/MyProfile';
 import About from './pages/About';
 import Support from './pages/Support';
 import Login from './pages/Login';
@@ -395,7 +394,7 @@ function App() {
         <Route path="/" element={<MainAssessment />} />
         <Route path="/login" element={<Login />} />
         <Route path="/account" element={<MyAccount />} />
-        <Route path="/profile" element={<MyProfile />} />
+        <Route path="/profile" element={<ResultsWrapper />} />
         <Route path="/about" element={<About />} />
         <Route path="/support" element={<Support />} />
         <Route path="/report/:assessmentType?" element={<ResultsWrapper />} />

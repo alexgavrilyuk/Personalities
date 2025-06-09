@@ -43,12 +43,18 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSkip, onSu
     }
   };
 
-  const getPasswordStrength = () => {
-    if (password.length === 0) return { strength: 0, text: '', color: '' };
-    if (password.length < 6) return { strength: 1, text: 'Weak', color: 'bg-red-500' };
-    if (password.length < 8) return { strength: 2, text: 'Fair', color: 'bg-yellow-500' };
-    if (password.length < 12) return { strength: 3, text: 'Good', color: 'bg-blue-500' };
-    return { strength: 4, text: 'Strong', color: 'bg-green-500' };
+  const getPasswordStrength = (): { score: number; label: string; color: string } => {
+    let score = 0;
+    if (password.length >= 8) score++;
+    if (password.length >= 12) score++;
+    if (/[a-z]/.test(password) && /[A-Z]/.test(password)) score++;
+    if (/\d/.test(password)) score++;
+    if (/[^a-zA-Z\d]/.test(password)) score++;
+
+    if (score <= 2) return { score: 1, label: 'Weak', color: 'bg-red-500' };
+    if (score <= 3) return { score: 2, label: 'Fair', color: 'bg-yellow-500' };
+    if (score <= 4) return { score: 3, label: 'Good', color: 'bg-blue-500' };
+    return { score: 4, label: 'Strong', color: 'bg-green-500' };
   };
 
   const passwordStrength = getPasswordStrength();
@@ -75,38 +81,53 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSkip, onSu
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-50 p-4"
           onClick={onClose}
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-gray-900 rounded-lg p-6 max-w-md w-full shadow-2xl"
+            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+            transition={{ duration: 0.2 }}
+            className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border border-charcoal-200"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-2xl font-bold text-white mb-4">Create Your Account</h2>
-            <p className="text-gray-400 mb-6">
-              Save your progress and access your results anytime
-            </p>
+            {/* Close button */}
+            <button
+              onClick={onClose}
+              className="absolute top-6 right-6 text-charcoal-400 hover:text-charcoal-600 transition-colors"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+
+            <div className="text-center mb-6">
+              <h2 className="font-serif text-3xl text-charcoal-800 mb-2">
+                Create Your <em>Account</em>
+              </h2>
+              <p className="text-charcoal-600">
+                Save your progress and access your results anytime
+              </p>
+            </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Email
+                <label className="block text-sm font-medium text-charcoal-700 mb-2">
+                  Email Address
                 </label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500"
-                  placeholder="your@email.com"
+                  className="w-full px-4 py-3 bg-white border border-charcoal-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
+                  placeholder="you@example.com"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-charcoal-700 mb-2">
                   Password
                 </label>
                 <input
@@ -114,26 +135,41 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSkip, onSu
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500"
+                  className="w-full px-4 py-3 bg-white border border-charcoal-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
                   placeholder="At least 8 characters"
                 />
                 {password && (
-                  <div className="mt-2">
-                    <div className="flex items-center space-x-2">
-                      <div className="flex-1 bg-gray-700 rounded-full h-2">
-                        <div
-                          className={`h-full rounded-full transition-all ${passwordStrength.color}`}
-                          style={{ width: `${passwordStrength.strength * 25}%` }}
-                        />
-                      </div>
-                      <span className="text-xs text-gray-400">{passwordStrength.text}</span>
+                  <div className="mt-3">
+                    <div className="flex items-center justify-between text-xs mb-2">
+                      <span className="text-charcoal-600">Password strength:</span>
+                      <span className={`font-medium ${
+                        passwordStrength.score === 1 ? 'text-red-600' :
+                        passwordStrength.score === 2 ? 'text-yellow-600' :
+                        passwordStrength.score === 3 ? 'text-blue-600' :
+                        'text-green-600'
+                      }`}>
+                        {passwordStrength.label}
+                      </span>
+                    </div>
+                    <div className="h-2 bg-charcoal-100 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: `${passwordStrength.score * 25}%` }}
+                        transition={{ duration: 0.3 }}
+                        className={`h-full ${
+                          passwordStrength.score === 1 ? 'bg-red-500' :
+                          passwordStrength.score === 2 ? 'bg-yellow-500' :
+                          passwordStrength.score === 3 ? 'bg-blue-500' :
+                          'bg-green-500'
+                        }`}
+                      />
                     </div>
                   </div>
                 )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-charcoal-700 mb-2">
                   Confirm Password
                 </label>
                 <input
@@ -141,44 +177,61 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSkip, onSu
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500"
+                  className="w-full px-4 py-3 bg-white border border-charcoal-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
                   placeholder="Confirm your password"
                 />
               </div>
 
               {error && (
-                <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-3 text-red-400 text-sm">
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 text-sm"
+                >
                   {error}
-                </div>
+                </motion.div>
               )}
 
-              <button
+              <motion.button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full btn-primary py-3 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? 'Creating Account...' : 'Create Account'}
-              </button>
+              </motion.button>
             </form>
 
             <div className="mt-6 space-y-4">
-              <button
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-charcoal-200"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-white text-charcoal-500">or</span>
+                </div>
+              </div>
+
+              <motion.button
                 onClick={onSkip}
-                className="w-full bg-gray-800 text-gray-300 font-semibold py-3 rounded-lg hover:bg-gray-700 transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full btn-secondary py-3"
               >
-                Skip for Now
-              </button>
+                Continue Without Account
+              </motion.button>
               
-              <p className="text-xs text-gray-500 text-center">
-                Note: Without an account, your progress and results will not be saved
+              <p className="text-xs text-charcoal-500 text-center">
+                Note: Without an account, your progress and results won't be saved
               </p>
 
-              <div className="text-center">
+              <div className="text-center pt-2">
                 <button
                   onClick={() => setShowLoginInstead(true)}
-                  className="text-purple-400 hover:text-purple-300 text-sm"
+                  className="text-charcoal-600 hover:text-charcoal-800 text-sm transition-colors"
                 >
-                  Already have an account? Sign in
+                  Already have an account? <span className="font-semibold">Sign in</span>
                 </button>
               </div>
             </div>
@@ -222,38 +275,53 @@ const LoginModal: React.FC<{
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-50 p-4"
       onClick={onClose}
     >
       <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-gray-900 rounded-lg p-6 max-w-md w-full shadow-2xl"
+        initial={{ scale: 0.95, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.95, opacity: 0, y: 20 }}
+        transition={{ duration: 0.2 }}
+        className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border border-charcoal-200"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-2xl font-bold text-white mb-4">Welcome Back</h2>
-        <p className="text-gray-400 mb-6">
-          Sign in to continue your assessment or view your results
-        </p>
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-6 right-6 text-charcoal-400 hover:text-charcoal-600 transition-colors"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
+        <div className="text-center mb-6">
+          <h2 className="font-serif text-3xl text-charcoal-800 mb-2">
+            Welcome <em>Back</em>
+          </h2>
+          <p className="text-charcoal-600">
+            Sign in to continue your assessment or view your results
+          </p>
+        </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
-              Email
+            <label className="block text-sm font-medium text-charcoal-700 mb-2">
+              Email Address
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500"
-              placeholder="your@email.com"
+              className="w-full px-4 py-3 bg-white border border-charcoal-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
+              placeholder="you@example.com"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-charcoal-700 mb-2">
               Password
             </label>
             <input
@@ -261,36 +329,42 @@ const LoginModal: React.FC<{
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-3 bg-white border border-charcoal-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all"
               placeholder="Your password"
             />
           </div>
 
           {error && (
-            <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-3 text-red-400 text-sm">
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 text-sm"
+            >
               {error}
-            </div>
+            </motion.div>
           )}
 
-          <button
+          <motion.button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full btn-primary py-3 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Signing In...' : 'Sign In'}
-          </button>
+          </motion.button>
         </form>
 
         <div className="mt-6 text-center">
-          <button className="text-purple-400 hover:text-purple-300 text-sm mb-4 block">
+          <button className="text-charcoal-600 hover:text-charcoal-800 text-sm mb-4 block transition-colors">
             Forgot your password?
           </button>
           
           <button
             onClick={onSignupInstead}
-            className="text-purple-400 hover:text-purple-300 text-sm"
+            className="text-charcoal-600 hover:text-charcoal-800 text-sm transition-colors"
           >
-            Don't have an account? Sign up
+            Don't have an account? <span className="font-semibold">Sign up</span>
           </button>
         </div>
       </motion.div>

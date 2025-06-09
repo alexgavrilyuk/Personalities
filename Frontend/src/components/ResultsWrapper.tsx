@@ -13,6 +13,7 @@ const ResultsWrapper: React.FC = () => {
   const [results, setResults] = useState<AssessmentResults | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [hasNoAssessments, setHasNoAssessments] = useState(false);
 
   useEffect(() => {
     if (!user || !session) {
@@ -33,6 +34,10 @@ const ResultsWrapper: React.FC = () => {
       });
 
       if (!response.ok) {
+        if (response.status === 404) {
+          setHasNoAssessments(true);
+          return;
+        }
         throw new Error('Failed to generate report');
       }
 
@@ -50,17 +55,38 @@ const ResultsWrapper: React.FC = () => {
     return <LoadingScreen />;
   }
 
+  if (hasNoAssessments) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/10 to-gray-900 text-white pt-20">
+        <div className="max-w-4xl mx-auto px-4 py-16">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-6">Welcome to Your Profile</h1>
+            <p className="text-xl text-gray-300 mb-8">
+              You haven't completed any assessments yet. Start your journey of self-discovery today!
+            </p>
+            <button
+              onClick={() => navigate('/')}
+              className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:opacity-90 transition-opacity"
+            >
+              Start Core Assessment
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Error Loading Results</h2>
-          <p className="text-gray-600 mb-6">{error}</p>
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/10 to-gray-900 text-white pt-20">
+        <div className="max-w-4xl mx-auto px-4 py-16 text-center">
+          <h2 className="text-2xl font-bold mb-4">Error Loading Results</h2>
+          <p className="text-gray-300 mb-6">{error}</p>
           <button
-            onClick={() => navigate('/profile')}
-            className="btn-primary"
+            onClick={() => navigate('/')}
+            className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
           >
-            Back to My Profile
+            Back to Home
           </button>
         </div>
       </div>

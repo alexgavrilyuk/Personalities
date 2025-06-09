@@ -9,61 +9,47 @@ interface VisualLikertScaleProps {
 
 const VisualLikertScale: React.FC<VisualLikertScaleProps> = ({ value, onChange, type }) => {
   const options7 = [
-    { value: 1, label: 'Strongly Disagree', color: 'from-red-500 to-red-600', emoji: '😠' },
-    { value: 2, label: 'Disagree', color: 'from-orange-500 to-orange-600', emoji: '😕' },
-    { value: 3, label: 'Slightly Disagree', color: 'from-yellow-500 to-yellow-600', emoji: '😐' },
-    { value: 4, label: 'Neutral', color: 'from-gray-400 to-gray-500', emoji: '😶' },
-    { value: 5, label: 'Slightly Agree', color: 'from-green-400 to-green-500', emoji: '🙂' },
-    { value: 6, label: 'Agree', color: 'from-green-500 to-green-600', emoji: '😊' },
-    { value: 7, label: 'Strongly Agree', color: 'from-green-600 to-green-700', emoji: '😄' }
+    { value: 1, label: 'Strongly Disagree', shortLabel: 'SD' },
+    { value: 2, label: 'Disagree', shortLabel: 'D' },
+    { value: 3, label: 'Slightly Disagree', shortLabel: 'SD' },
+    { value: 4, label: 'Neutral', shortLabel: 'N' },
+    { value: 5, label: 'Slightly Agree', shortLabel: 'SA' },
+    { value: 6, label: 'Agree', shortLabel: 'A' },
+    { value: 7, label: 'Strongly Agree', shortLabel: 'SA' }
   ];
 
   const options5 = [
-    { value: 1, label: 'Never', color: 'from-red-500 to-red-600', emoji: '❌' },
-    { value: 2, label: 'Rarely', color: 'from-orange-500 to-orange-600', emoji: '🔸' },
-    { value: 3, label: 'Sometimes', color: 'from-yellow-500 to-yellow-600', emoji: '⚡' },
-    { value: 4, label: 'Often', color: 'from-green-500 to-green-600', emoji: '✓' },
-    { value: 5, label: 'Always', color: 'from-green-600 to-green-700', emoji: '✅' }
+    { value: 1, label: 'Never', shortLabel: 'N' },
+    { value: 2, label: 'Rarely', shortLabel: 'R' },
+    { value: 3, label: 'Sometimes', shortLabel: 'S' },
+    { value: 4, label: 'Often', shortLabel: 'O' },
+    { value: 5, label: 'Always', shortLabel: 'A' }
   ];
 
   const options = type === '7-point' ? options7 : options5;
 
   return (
     <div className="space-y-3">
-      {/* Visual scale indicator */}
-      <div className="relative h-2 bg-gradient-to-r from-red-200 via-yellow-200 to-green-200 rounded-full overflow-hidden">
-        {value && (
-          <motion.div
-            className="absolute top-0 h-full w-1 bg-gray-800 rounded-full"
-            initial={false}
-            animate={{ left: `${((value - 1) / (options.length - 1)) * 100}%` }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            style={{ transform: 'translateX(-50%)' }}
-          />
-        )}
-      </div>
-
-      {/* Emoji buttons */}
-      <div className="flex justify-between gap-1">
-        {options.map((option) => (
+      {/* Scale buttons */}
+      <div className="flex justify-between gap-2">
+        {options.map((option, index) => (
           <motion.button
             key={option.value}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => onChange(option.value)}
-            className={`relative flex-1 aspect-square rounded-lg flex items-center justify-center text-2xl transition-all ${
+            className={`relative flex-1 py-3 px-2 rounded-xl font-medium text-sm transition-all ${
               value === option.value
-                ? `bg-gradient-to-br ${option.color} shadow-lg`
-                : 'bg-gray-100 hover:bg-gray-200'
+                ? 'bg-yellow-500 text-charcoal-800 shadow-sm'
+                : 'bg-charcoal-50 text-charcoal-600 hover:bg-charcoal-100'
             }`}
             title={option.label}
           >
-            <span className={value === option.value ? 'grayscale-0' : 'grayscale opacity-60'}>
-              {option.emoji}
-            </span>
+            <span className="hidden sm:inline">{option.value}</span>
+            <span className="sm:hidden">{option.shortLabel}</span>
             {value === option.value && (
               <motion.div
-                className="absolute inset-0 rounded-lg ring-2 ring-offset-2 ring-gray-800"
+                className="absolute inset-0 rounded-xl ring-2 ring-yellow-600 ring-opacity-50"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.2 }}
@@ -73,14 +59,23 @@ const VisualLikertScale: React.FC<VisualLikertScaleProps> = ({ value, onChange, 
         ))}
       </div>
 
-      {/* Selected label */}
-      <div className="text-center h-6">
+      {/* Scale labels - only show on larger screens */}
+      <div className="hidden sm:flex justify-between px-1">
+        <span className="text-xs text-charcoal-500">{options[0].label}</span>
+        {options.length === 7 && (
+          <span className="text-xs text-charcoal-500">{options[3].label}</span>
+        )}
+        <span className="text-xs text-charcoal-500">{options[options.length - 1].label}</span>
+      </div>
+
+      {/* Selected label for mobile */}
+      <div className="sm:hidden text-center h-5">
         {value && (
           <motion.p
             key={value}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-sm font-medium text-gray-700"
+            className="text-xs font-medium text-charcoal-600"
           >
             {options.find(opt => opt.value === value)?.label}
           </motion.p>

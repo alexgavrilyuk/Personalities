@@ -114,7 +114,7 @@ const MBTITypeCard: React.FC<MBTITypeCardProps> = ({ mbti }) => {
     <motion.div
       initial={{ scale: 0.95, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl shadow-xl p-8 text-white"
+      className="bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl shadow-xl p-8 text-charcoal-900"
     >
       <div className="text-center mb-6">
         <motion.div
@@ -149,7 +149,7 @@ const MBTITypeCard: React.FC<MBTITypeCardProps> = ({ mbti }) => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.4 + index * 0.1 }}
-            className="bg-white/10 backdrop-blur rounded-lg p-4 text-center"
+            className="bg-charcoal-900/10 backdrop-blur rounded-lg p-4 text-center"
           >
             <div className="text-2xl font-bold mb-1">{dimension}</div>
             <div className="text-sm opacity-80">{getDimensionLabel(dimension)}</div>
@@ -172,7 +172,7 @@ const MBTITypeCard: React.FC<MBTITypeCardProps> = ({ mbti }) => {
             {typeInfo.strengths.map((strength, index) => (
               <span
                 key={index}
-                className="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm"
+                className="bg-charcoal-900/20 backdrop-blur px-3 py-1 rounded-full text-sm"
               >
                 {strength}
               </span>
@@ -186,7 +186,7 @@ const MBTITypeCard: React.FC<MBTITypeCardProps> = ({ mbti }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        className="mt-6 pt-6 border-t border-white/20 flex justify-between items-center"
+        className="mt-6 pt-6 border-t border-charcoal-900/20 flex justify-between items-center"
       >
         <div>
           <span className="text-sm opacity-80">Confidence: </span>
