@@ -35,6 +35,22 @@ const MultiQuestionDisplay: React.FC<MultiQuestionDisplayProps> = ({
     setResponses(responseMap);
   }, [currentResponses]);
 
+  // Add keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        // Check if all questions are answered
+        if (responses.size === questions.length) {
+          handleSubmit();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [responses, questions.length]);
+
   const handleResponseChange = (questionId: string, value: number | string) => {
     const question = questions.find(q => q.id === questionId);
     if (!question) return;

@@ -1,12 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import assessment
+from app.routers import assessment, teams, premium
 import uvicorn
 
 app = FastAPI(
     title="Personality Assessment API",
-    description="Comprehensive personality assessment integrating Big Five, MBTI, and Jungian psychology",
-    version="1.0.0"
+    description="Comprehensive personality assessment integrating Big Five, MBTI, and Jungian psychology with premium features",
+    version="2.0.0"
 )
 
 # Configure CORS
@@ -20,6 +20,8 @@ app.add_middleware(
 
 # Include routers
 app.include_router(assessment.router, prefix="/api", tags=["assessment"])
+app.include_router(teams.router, prefix="/api", tags=["teams"])
+app.include_router(premium.router, prefix="/api/premium", tags=["premium"])
 
 @app.get("/")
 async def root():

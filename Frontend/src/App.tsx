@@ -14,6 +14,12 @@ import MyAccount from './pages/MyAccount';
 import About from './pages/About';
 import Support from './pages/Support';
 import Login from './pages/Login';
+import Science from './pages/Science';
+import DiscoveryAssessment from './components/assessment/DiscoveryAssessment';
+import DiscoveryResults from './components/assessment/DiscoveryResults';
+import PremiumUpgrade from './components/premium/PremiumUpgrade';
+import TeamDashboard from './components/teams/TeamDashboard';
+import TeamInsights from './components/teams/TeamInsights';
 import { api, AUTH_API_BASE_URL } from './utils/api';
 import { Question, QuestionResponse, AssessmentResults } from './types/assessment';
 import { useAuth } from './contexts/AuthContext';
@@ -397,7 +403,13 @@ function App() {
         <Route path="/profile" element={<ResultsWrapper />} />
         <Route path="/about" element={<About />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/science" element={<Science />} />
         <Route path="/report/:assessmentType?" element={<ResultsWrapper />} />
+        <Route path="/discovery" element={<DiscoveryAssessment />} />
+        <Route path="/discovery-results" element={<DiscoveryResults />} />
+        <Route path="/premium" element={<PremiumUpgrade />} />
+        <Route path="/teams" element={<TeamDashboard />} />
+        <Route path="/teams/:teamId" element={<TeamInsights />} />
       </Routes>
       {showFooter && <Footer />}
     </>

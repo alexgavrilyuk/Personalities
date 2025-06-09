@@ -4,14 +4,20 @@ import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Responsi
 import { BigFiveScores } from '../../types/assessment';
 
 interface BigFiveChartProps {
-  bigFive: BigFiveScores;
+  bigFive?: BigFiveScores;
+  data?: BigFiveScores;
+  compact?: boolean;
 }
 
-const BigFiveChart: React.FC<BigFiveChartProps> = ({ bigFive }) => {
-  const data = Object.entries(bigFive.scores).map(([dimension, score]) => ({
+const BigFiveChart: React.FC<BigFiveChartProps> = ({ bigFive, data: dataProp, compact }) => {
+  const bigFiveData = bigFive || dataProp;
+  
+  if (!bigFiveData) return null;
+  
+  const chartData = Object.entries(bigFiveData.scores).map(([dimension, score]) => ({
     dimension,
     score,
-    percentile: bigFive.percentiles[dimension]
+    percentile: bigFiveData.percentiles[dimension]
   }));
 
   const getColorForScore = (score: number) => {
@@ -53,6 +59,34 @@ const BigFiveChart: React.FC<BigFiveChartProps> = ({ bigFive }) => {
     return descriptions[dimension]?.[level] || '';
   };
 
+  if (compact) {
+    return (
+      <div className="h-64">
+        <ResponsiveContainer width="100%" height="100%">
+          <RadarChart data={chartData}>
+            <PolarGrid stroke="#e5e7eb" />
+            <PolarAngleAxis 
+              dataKey="dimension" 
+              tick={{ fill: '#4b5563', fontSize: 12 }}
+            />
+            <PolarRadiusAxis 
+              domain={[0, 100]} 
+              tick={false}
+            />
+            <Radar 
+              name="Your Score" 
+              dataKey="score" 
+              stroke="#8b5cf6" 
+              fill="#8b5cf6" 
+              fillOpacity={0.3}
+              strokeWidth={2}
+            />
+          </RadarChart>
+        </ResponsiveContainer>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Big Five Personality Traits</h2>
@@ -61,7 +95,7 @@ const BigFiveChart: React.FC<BigFiveChartProps> = ({ bigFive }) => {
         {/* Chart */}
         <div className="flex items-center justify-center">
           <ResponsiveContainer width="100%" height={300}>
-            <RadarChart data={data}>
+            <RadarChart data={chartData}>
               <PolarGrid stroke="#e5e7eb" />
               <PolarAngleAxis 
                 dataKey="dimension" 
@@ -85,7 +119,7 @@ const BigFiveChart: React.FC<BigFiveChartProps> = ({ bigFive }) => {
 
         {/* Scores List */}
         <div className="space-y-4">
-          {data.map((item, index) => (
+          {chartData.map((item, index) => (
             <motion.div
               key={item.dimension}
               initial={{ opacity: 0, x: 20 }}

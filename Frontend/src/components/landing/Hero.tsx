@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { SparklesIcon, UsersIcon } from '@heroicons/react/24/outline';
 
 interface HeroProps {
   onStartTest: () => void;
@@ -25,23 +27,45 @@ const Hero: React.FC<HeroProps> = ({ onStartTest, user, hasActiveAssessment }) =
               <span className="font-bold">True Self</span>
             </h1>
             <p className="text-charcoal-700 text-lg lg:text-xl mb-8 max-w-lg leading-relaxed">
-              Unlock deep insights into your personality through our comprehensive assessment 
-              that combines Big Five traits, MBTI preferences, and Jungian depth psychology.
+              Start with our 60-question Discovery Assessment in just 10 minutes, or dive deep with 
+              our comprehensive 200-question analysis. Unlock premium features for relationship insights, 
+              career alignment, and team comparisons.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Link to="/discovery">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn-primary flex items-center"
+                >
+                  <SparklesIcon className="w-5 h-5 mr-2" />
+                  Start Discovery (60 questions)
+                </motion.button>
+              </Link>
+              
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onStartTest}
-                className="btn-primary"
+                className="btn-secondary"
               >
-                {user && hasActiveAssessment ? 'Continue Assessment' : 'Start Assessment'}
+                {user && hasActiveAssessment ? 'Continue Full Assessment' : 'Full Assessment (200 questions)'}
               </motion.button>
-              <a href="#how-it-works" className="btn-secondary inline-block">
-                Learn How It Works
-              </a>
             </div>
+            
+            {user && (
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/teams" className="inline-flex items-center text-charcoal-700 hover:text-charcoal-900">
+                  <UsersIcon className="w-5 h-5 mr-2" />
+                  <span className="font-medium">My Teams</span>
+                </Link>
+                <Link to="/premium" className="inline-flex items-center text-charcoal-700 hover:text-charcoal-900">
+                  <SparklesIcon className="w-5 h-5 mr-2" />
+                  <span className="font-medium">Unlock Premium</span>
+                </Link>
+              </div>
+            )}
             
             {/* Stats */}
             <div className="flex flex-wrap gap-8 text-charcoal-700">

@@ -42,6 +42,7 @@ class QuestionResponse(BaseModel):
 
 class AssessmentStartRequest(BaseModel):
     user_seed: Optional[str] = None
+    assessment_type: str = "core"  # "core" or "discovery"
 
 class AssessmentStartResponse(BaseModel):
     questions: List[Question]
@@ -90,3 +91,4 @@ class AssessmentResults(BaseModel):
 
 class AssessmentSubmission(BaseModel):
     responses: List[QuestionResponse]
+    assessment_types: List[str] = ["core"]  # ["core"], ["discovery"], or ["discovery", "core"] for full after discovery

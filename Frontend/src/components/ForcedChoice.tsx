@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface ForcedChoiceProps {
@@ -9,6 +9,20 @@ interface ForcedChoiceProps {
 }
 
 const ForcedChoice: React.FC<ForcedChoiceProps> = ({ optionA, optionB, selected, onSelect }) => {
+  // Add keyboard shortcuts for A and B keys
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      const key = e.key.toLowerCase();
+      if (key === 'a' || key === '1') {
+        onSelect('a');
+      } else if (key === 'b' || key === '2') {
+        onSelect('b');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [onSelect]);
   return (
     <div className="space-y-3">
       <motion.button

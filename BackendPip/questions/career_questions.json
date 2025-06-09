@@ -1,0 +1,566 @@
+{
+  "assessment_type": "career",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "CAR_001",
+      "text": "I enjoy working with my hands to build or repair things",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_002",
+      "text": "I find satisfaction in solving complex theoretical problems",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_003",
+      "text": "Creating original works of art, music, or writing energizes me",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_004",
+      "text": "I feel fulfilled when helping others overcome challenges",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_005",
+      "text": "Leading teams and making strategic decisions excites me",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_006",
+      "text": "I prefer working with established procedures and clear guidelines",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_007",
+      "text": "Physical, outdoor work appeals to me more than office work",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_008",
+      "text": "I enjoy analyzing data to uncover patterns and insights",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_009",
+      "text": "I need creative freedom to feel satisfied in my work",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_010",
+      "text": "Teaching or mentoring others brings me great satisfaction",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_011",
+      "text": "I thrive in competitive business environments",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_012",
+      "text": "Organizing information and maintaining records is satisfying to me",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_013",
+      "text": "I prefer practical, tangible results over abstract concepts",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_014",
+      "text": "Scientific research and discovery fascinate me",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_015",
+      "text": "I express myself best through creative mediums",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_016",
+      "text": "Building strong relationships is central to my work satisfaction",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_017",
+      "text": "I'm energized by persuading others and closing deals",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_018",
+      "text": "Following established systems and protocols feels comfortable",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_019",
+      "text": "Working with tools and machinery comes naturally to me",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_020",
+      "text": "I prefer working independently on complex problems",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_021",
+      "text": "Unconventional work environments appeal to me",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_022",
+      "text": "I find meaning in work that directly helps people",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_023",
+      "text": "Taking calculated risks for potential rewards motivates me",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_024",
+      "text": "Accuracy and attention to detail are my strengths",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_025",
+      "text": "I value practical skills over theoretical knowledge",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_026",
+      "text": "Understanding how things work at a deep level interests me",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_027",
+      "text": "I need variety and spontaneity in my work",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_028",
+      "text": "Collaborative work environments energize me",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_029",
+      "text": "I enjoy influencing organizational direction and strategy",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_030",
+      "text": "Stable, predictable work environments suit me best",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_031",
+      "text": "I prefer seeing immediate, concrete results from my work",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_032",
+      "text": "Intellectual challenges are more rewarding than social interactions",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_033",
+      "text": "My ideal work involves creative problem-solving",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_034",
+      "text": "I'm drawn to careers that make a positive social impact",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_035",
+      "text": "Negotiating and deal-making are exciting challenges",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_036",
+      "text": "I excel at implementing and maintaining systems",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_037",
+      "text": "Physical activity is important in my ideal job",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_038",
+      "text": "I enjoy developing theories and testing hypotheses",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_039",
+      "text": "Self-expression is crucial to my job satisfaction",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_040",
+      "text": "Facilitating group dynamics and communication appeals to me",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_041",
+      "text": "I'm motivated by financial success and recognition",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_042",
+      "text": "Clear expectations and structured tasks help me perform best",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_043",
+      "text": "I prefer working with objects rather than ideas or people",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_044",
+      "text": "Abstract thinking and conceptual work energize me",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_045",
+      "text": "I need autonomy to pursue my creative vision",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_046",
+      "text": "Understanding and helping people is my primary motivation",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_047",
+      "text": "I enjoy the challenge of building something from nothing",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_048",
+      "text": "Quality control and precision are important to me",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_049",
+      "text": "I learn best through hands-on experience",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_050",
+      "text": "I'm drawn to careers requiring advanced analytical skills",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_051",
+      "text": "Traditional career paths feel limiting to me",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_052",
+      "text": "I find fulfillment in nurturing others' growth",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_053",
+      "text": "Competition brings out my best performance",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_054",
+      "text": "I appreciate the security of well-defined roles",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_055",
+      "text": "Working outdoors appeals to me more than office work",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_056",
+      "text": "I enjoy work that requires deep concentration and analysis",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_057",
+      "text": "I thrive in environments that value innovation and originality",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_058",
+      "text": "Creating positive team dynamics is one of my strengths",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_059",
+      "text": "I'm comfortable with the uncertainty of entrepreneurship",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_060",
+      "text": "Following proven methods leads to the best results",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_061",
+      "text": "I value practical experience over academic credentials",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_062",
+      "text": "Complex problems requiring research excite me",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_063",
+      "text": "My work must allow for personal expression",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_064",
+      "text": "I'm energized by helping others reach their potential",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_065",
+      "text": "I enjoy roles where I can influence and persuade",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_066",
+      "text": "Consistency and routine help me be productive",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_067",
+      "text": "I prefer concrete tasks with visible outcomes",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_068",
+      "text": "Discovering new knowledge motivates me",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_069",
+      "text": "I need flexibility to follow my creative impulses",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_070",
+      "text": "Working in service of others gives my work meaning",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_071",
+      "text": "I thrive when given leadership responsibilities",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_072",
+      "text": "I excel at maintaining order and efficiency",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_073",
+      "text": "Physical challenges in work motivate me",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_074",
+      "text": "I prefer thinking and planning over implementing",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_075",
+      "text": "Breaking conventions to create something new excites me",
+      "riasec_type": "Artistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_076",
+      "text": "I'm drawn to careers focused on human welfare",
+      "riasec_type": "Social",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_077",
+      "text": "Business strategy and market dynamics fascinate me",
+      "riasec_type": "Enterprising",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_078",
+      "text": "I find satisfaction in perfecting established processes",
+      "riasec_type": "Conventional",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_079",
+      "text": "I enjoy work that keeps me physically active",
+      "riasec_type": "Realistic",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "CAR_080",
+      "text": "Solving puzzles and unraveling mysteries appeals to me",
+      "riasec_type": "Investigative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    }
+  ]
+}

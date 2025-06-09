@@ -5,11 +5,20 @@ import { useAuth } from '../../contexts/AuthContext';
 interface SignupModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSkip: () => void;
+  onSkip?: () => void;
   onSuccess: () => void;
+  hideSkip?: boolean;
+  context?: 'discovery' | 'main';
 }
 
-const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSkip, onSuccess }) => {
+const SignupModal: React.FC<SignupModalProps> = ({ 
+  isOpen, 
+  onClose, 
+  onSkip, 
+  onSuccess, 
+  hideSkip = false,
+  context = 'main' 
+}) => {
   const { signUp } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -107,7 +116,9 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSkip, onSu
                 Create Your <em>Account</em>
               </h2>
               <p className="text-charcoal-600">
-                Save your progress and access your results anytime
+                {context === 'discovery' 
+                  ? 'Sign up to save your results and take the full assessment'
+                  : 'Save your progress and access your results anytime'}
               </p>
             </div>
 
@@ -204,27 +215,57 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onClose, onSkip, onSu
             </form>
 
             <div className="mt-6 space-y-4">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-charcoal-200"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-charcoal-500">or</span>
-                </div>
-              </div>
+              {!hideSkip && (
+                <>
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-charcoal-200"></div>
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                      <span className="px-2 bg-white text-charcoal-500">or</span>
+                    </div>
+                  </div>
 
-              <motion.button
-                onClick={onSkip}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full btn-secondary py-3"
-              >
-                Continue Without Account
-              </motion.button>
-              
-              <p className="text-xs text-charcoal-500 text-center">
-                Note: Without an account, your progress and results won't be saved
-              </p>
+                  <motion.button
+                    onClick={onSkip}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full btn-secondary py-3"
+                  >
+                    Continue Without Account
+                  </motion.button>
+                  
+                  <p className="text-xs text-charcoal-500 text-center">
+                    Note: Without an account, your progress and results won't be saved
+                  </p>
+                </>
+              )}
+
+              {context === 'discovery' && (
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4">
+                  <h4 className="text-sm font-semibold text-blue-900 mb-2">Your account includes:</h4>
+                  <ul className="text-sm text-blue-800 space-y-1">
+                    <li className="flex items-start">
+                      <svg className="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Save all assessment results permanently
+                    </li>
+                    <li className="flex items-start">
+                      <svg className="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Resume the full 200-question assessment anytime
+                    </li>
+                    <li className="flex items-start">
+                      <svg className="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Track your personality development over time
+                    </li>
+                  </ul>
+                </div>
+              )}
 
               <div className="text-center pt-2">
                 <button

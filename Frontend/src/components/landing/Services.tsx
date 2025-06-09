@@ -1,39 +1,66 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Services: React.FC = () => {
-  const steps = [
+  const assessmentTiers = [
     {
-      number: '01',
-      title: 'TAKE ASSESSMENT',
-      description: 'Complete our comprehensive 200-question assessment covering Big Five, MBTI, and Jungian psychology.',
-      isHighlighted: true
+      tier: 'Discovery',
+      questions: '60',
+      time: '10 minutes',
+      price: 'Free',
+      color: 'bg-green-100 border-green-300',
+      features: [
+        'Quick personality snapshot',
+        'Big Five trait overview',
+        'Initial MBTI indication',
+        'Basic insights'
+      ],
+      link: '/discovery',
+      buttonText: 'Start Discovery'
     },
     {
-      number: '02',
-      title: 'GET ANALYZED',
-      description: 'Our advanced algorithms process your responses using Item Response Theory and factor mixture modeling.',
-      isHighlighted: false
+      tier: 'Core',
+      questions: '200',
+      time: '25-35 minutes',
+      price: 'Free',
+      color: 'bg-blue-100 border-blue-300',
+      features: [
+        'Comprehensive Big Five analysis',
+        'Confident MBTI typing',
+        'Cognitive function stack',
+        'Jungian depth insights',
+        'Detailed interpretation'
+      ],
+      link: '/',
+      buttonText: 'Take Full Assessment',
+      isMainTest: true
     },
     {
-      number: '03',
-      title: 'RECEIVE INSIGHTS',
-      description: 'Get your detailed personality profile with actionable insights and development suggestions.',
-      isHighlighted: false
-    },
-    {
-      number: '04',
-      title: 'GROW & EVOLVE',
-      description: 'Apply your newfound self-knowledge to improve relationships, career, and personal growth.',
-      isHighlighted: false
+      tier: 'Premium',
+      questions: '7 Assessments',
+      time: 'Unlimited',
+      price: '$24.99',
+      color: 'bg-purple-100 border-purple-300',
+      features: [
+        'Relationship dynamics',
+        'Career alignment',
+        'Emotional intelligence',
+        'Leadership potential',
+        'Creative expression',
+        'Team comparisons',
+        'Lifetime updates'
+      ],
+      link: '/premium',
+      buttonText: 'Unlock Premium'
     }
   ];
 
   const features = [
     'Private and secure assessment',
     'Scientifically validated methods',
-    'Comprehensive personality profile',
-    'Actionable growth recommendations',
+    'Team comparison features',
+    'Premium assessments available',
     'Integration of multiple frameworks',
     'Professional-grade insights'
   ];
@@ -46,44 +73,85 @@ const Services: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-16 text-center"
         >
-          <p className="text-sm text-charcoal-600 uppercase tracking-wide mb-3">HOW IT WORKS</p>
-          <h2 className="font-serif text-4xl lg:text-6xl text-charcoal-800 mb-2">
-            From Assessment to
-          </h2>
+          <p className="text-sm text-charcoal-600 uppercase tracking-wide mb-3">CHOOSE YOUR JOURNEY</p>
           <h2 className="font-serif text-4xl lg:text-6xl text-charcoal-800 mb-4">
-            Transformation — <em>Step by Step</em>
+            Three Ways to <em>Discover Yourself</em>
           </h2>
         </motion.div>
 
-        {/* Steps Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
-          {steps.map((step, index) => (
+        {/* Assessment Tiers */}
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
+          {assessmentTiers.map((tier, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`${step.isHighlighted ? 'bg-yellow-500' : 'bg-white border border-charcoal-200'} 
-                         rounded-2xl p-8 relative`}
+              className={`${tier.color} border-2 rounded-2xl p-8 relative transform hover:scale-105 transition-transform`}
             >
-              <div className="flex items-start gap-4">
-                <div className={`font-serif text-6xl ${step.isHighlighted ? 'text-charcoal-800' : 'text-charcoal-400'} italic`}>
-                  {step.number}
-                </div>
-                <div className="flex-1">
-                  <h3 className={`text-sm font-semibold mb-3 tracking-wider ${step.isHighlighted ? 'text-charcoal-800' : 'text-charcoal-600'}`}>
-                    {step.title}
-                  </h3>
-                  <p className={`${step.isHighlighted ? 'text-charcoal-700' : 'text-charcoal-600'} leading-relaxed`}>
-                    {step.description}
-                  </p>
-                </div>
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-charcoal-800 mb-2">{tier.tier}</h3>
+                <div className="text-3xl font-bold text-charcoal-900">{tier.price}</div>
+                <div className="text-sm text-charcoal-600 mt-1">{tier.questions} • {tier.time}</div>
               </div>
+              
+              <ul className="space-y-3 mb-8">
+                {tier.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start">
+                    <span className="text-charcoal-800 mr-2">✓</span>
+                    <span className="text-charcoal-700 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              {tier.isMainTest ? (
+                <button 
+                  onClick={() => window.location.href = '/'}
+                  className="w-full py-3 bg-charcoal-800 text-white rounded-lg hover:bg-charcoal-900 transition-colors"
+                >
+                  {tier.buttonText}
+                </button>
+              ) : (
+                <Link to={tier.link} className="block">
+                  <button className="w-full py-3 bg-charcoal-800 text-white rounded-lg hover:bg-charcoal-900 transition-colors">
+                    {tier.buttonText}
+                  </button>
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
+
+        {/* How It Works Steps */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-20"
+        >
+          <h3 className="font-serif text-3xl text-charcoal-800 text-center mb-12">
+            How It Works
+          </h3>
+          
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { step: '1', title: 'Choose Your Path', desc: 'Start with Discovery or dive into Core' },
+              { step: '2', title: 'Answer Questions', desc: 'Thoughtful questions about your preferences' },
+              { step: '3', title: 'Get Results', desc: 'Instant, scientifically-grounded insights' },
+              { step: '4', title: 'Compare & Grow', desc: 'Join teams and unlock premium features' }
+            ].map((item, idx) => (
+              <div key={idx} className="text-center">
+                <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-charcoal-800">{item.step}</span>
+                </div>
+                <h4 className="font-semibold text-charcoal-800 mb-2">{item.title}</h4>
+                <p className="text-sm text-charcoal-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Visual Section with Laptop */}
         <motion.div
@@ -170,7 +238,9 @@ const Services: React.FC = () => {
                   "You're an introspective self-explorer",
                   "You crave honest self-understanding",
                   "You want to improve relationships",
-                  "You value personal growth"
+                  "You value personal growth",
+                  "You enjoy comparing with friends/teams",
+                  "You seek career alignment"
                 ].map((item, index) => (
                   <li key={index} className="bg-white rounded-full px-4 py-2 text-sm text-charcoal-700 inline-block mr-2 mb-2">
                     {item}

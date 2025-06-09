@@ -31,6 +31,19 @@ const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
     }
   }, [question.id, currentAnswer]);
 
+  // Add keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && selectedValue !== null) {
+        e.preventDefault();
+        handleSubmit();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [selectedValue, question.id]);
+
   const handleSubmit = () => {
     if (selectedValue === null) return;
 

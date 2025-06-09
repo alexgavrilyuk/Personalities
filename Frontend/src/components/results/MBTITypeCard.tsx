@@ -4,9 +4,10 @@ import { MBTIResult } from '../../types/assessment';
 
 interface MBTITypeCardProps {
   mbti: MBTIResult;
+  compact?: boolean;
 }
 
-const MBTITypeCard: React.FC<MBTITypeCardProps> = ({ mbti }) => {
+const MBTITypeCard: React.FC<MBTITypeCardProps> = ({ mbti, compact }) => {
   const typeDescriptions: Record<string, { title: string; description: string; strengths: string[] }> = {
     INTJ: {
       title: 'The Architect',
@@ -109,6 +110,19 @@ const MBTITypeCard: React.FC<MBTITypeCardProps> = ({ mbti }) => {
     };
     return labels[dimension] || dimension;
   };
+
+  if (compact) {
+    return (
+      <div className="text-center">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">Personality Type</h3>
+        <div className="text-3xl font-bold text-purple-600 mb-1">{mbti.primary_type}</div>
+        <div className="text-sm text-gray-600 mb-2">{typeInfo.title}</div>
+        <div className="flex items-center justify-center text-sm text-gray-500">
+          <span>Confidence: {Math.round(mbti.probability * 100)}%</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div

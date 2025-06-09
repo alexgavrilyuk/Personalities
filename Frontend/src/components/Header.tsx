@@ -10,10 +10,15 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Support', path: '/support' },
+    { name: 'Discovery', path: '/discovery' },
     ...(user ? [
+      { name: 'Teams', path: '/teams' },
       { name: 'My Profile', path: '/profile' },
+    ] : []),
+    { name: 'Premium', path: '/premium' },
+    { name: 'Science', path: '/science' },
+    { name: 'About', path: '/about' },
+    ...(user ? [
       { name: 'Account', path: '/account' }
     ] : [])
   ];

@@ -1,0 +1,444 @@
+{
+  "assessment_type": "relationships",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "REL_001",
+      "text": "I worry about being abandoned by people close to me",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_anxiety": 0.82,
+        "attachment_avoidance": -0.05
+      }
+    },
+    {
+      "id": "REL_002",
+      "text": "I feel comfortable depending on romantic partners",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": true,
+      "factor_loadings": {
+        "attachment_avoidance": -0.78,
+        "attachment_anxiety": -0.12
+      }
+    },
+    {
+      "id": "REL_003",
+      "text": "I often worry that my partner doesn't really love me",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_anxiety": 0.85,
+        "attachment_avoidance": 0.08
+      }
+    },
+    {
+      "id": "REL_004",
+      "text": "I prefer not to show others how I feel deep down",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_avoidance": 0.75,
+        "attachment_anxiety": 0.10
+      }
+    },
+    {
+      "id": "REL_005",
+      "text": "My desire to be very close sometimes scares people away",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_anxiety": 0.73,
+        "attachment_avoidance": -0.15
+      }
+    },
+    {
+      "id": "REL_006",
+      "text": "I find it easy to trust romantic partners",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": true,
+      "factor_loadings": {
+        "attachment_avoidance": -0.71,
+        "attachment_anxiety": -0.22
+      }
+    },
+    {
+      "id": "REL_007",
+      "text": "I worry a lot about my relationships",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_anxiety": 0.79,
+        "attachment_avoidance": 0.05
+      }
+    },
+    {
+      "id": "REL_008",
+      "text": "I am nervous when partners get too close to me",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_avoidance": 0.80,
+        "attachment_anxiety": 0.18
+      }
+    },
+    {
+      "id": "REL_009",
+      "text": "I rarely worry about my partner leaving me",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": true,
+      "factor_loadings": {
+        "attachment_anxiety": -0.76,
+        "attachment_avoidance": 0.08
+      }
+    },
+    {
+      "id": "REL_010",
+      "text": "I feel comfortable sharing my private thoughts with my partner",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": true,
+      "factor_loadings": {
+        "attachment_avoidance": -0.77,
+        "attachment_anxiety": -0.10
+      }
+    },
+    {
+      "id": "REL_011",
+      "text": "Words of affirmation make me feel most loved",
+      "dimension": "love_language_words",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_012",
+      "text": "I feel most connected when spending quality time together",
+      "dimension": "love_language_time",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_013",
+      "text": "Receiving thoughtful gifts makes me feel cherished",
+      "dimension": "love_language_gifts",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_014",
+      "text": "Actions speak louder than words in showing love",
+      "dimension": "love_language_service",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_015",
+      "text": "Physical touch is essential for me to feel connected",
+      "dimension": "love_language_touch",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_016",
+      "text": "I need frequent reassurance about my partner's feelings",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_anxiety": 0.81,
+        "attachment_avoidance": -0.02
+      }
+    },
+    {
+      "id": "REL_017",
+      "text": "I try to avoid getting too attached to romantic partners",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_avoidance": 0.83,
+        "attachment_anxiety": -0.08
+      }
+    },
+    {
+      "id": "REL_018",
+      "text": "When I disagree with someone, I openly express it",
+      "dimension": "conflict_assertive",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_019",
+      "text": "I tend to avoid conflict even when issues need addressing",
+      "dimension": "conflict_avoidant",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_020",
+      "text": "I look for win-win solutions in disagreements",
+      "dimension": "conflict_collaborative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_021",
+      "text": "I often give in to avoid arguments",
+      "dimension": "conflict_accommodating",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_022",
+      "text": "I stand my ground even if it creates tension",
+      "dimension": "conflict_competing",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_023",
+      "text": "Small gestures of love mean more to me than grand displays",
+      "dimension": "love_language_service",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_024",
+      "text": "I feel most loved through physical closeness and affection",
+      "dimension": "love_language_touch",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_025",
+      "text": "Compliments and verbal appreciation boost my mood significantly",
+      "dimension": "love_language_words",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_026",
+      "text": "I feel disconnected without regular one-on-one time",
+      "dimension": "love_language_time",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_027",
+      "text": "Thoughtful surprises make me feel deeply appreciated",
+      "dimension": "love_language_gifts",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_028",
+      "text": "I fear that I want more intimacy than most people",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_anxiety": 0.74,
+        "attachment_avoidance": -0.20
+      }
+    },
+    {
+      "id": "REL_029",
+      "text": "It's easy for me to be affectionate with close others",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": true,
+      "factor_loadings": {
+        "attachment_avoidance": -0.69,
+        "attachment_anxiety": -0.15
+      }
+    },
+    {
+      "id": "REL_030",
+      "text": "I get frustrated when my partner is not available when I need them",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_anxiety": 0.70,
+        "attachment_avoidance": 0.05
+      }
+    },
+    {
+      "id": "REL_031",
+      "text": "I prefer to keep some emotional distance in relationships",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_avoidance": 0.76,
+        "attachment_anxiety": 0.03
+      }
+    },
+    {
+      "id": "REL_032",
+      "text": "I find myself wanting to merge completely with another person",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_anxiety": 0.77,
+        "attachment_avoidance": -0.25
+      }
+    },
+    {
+      "id": "REL_033",
+      "text": "I am comfortable without close emotional relationships",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_avoidance": 0.72,
+        "attachment_anxiety": -0.10
+      }
+    },
+    {
+      "id": "REL_034",
+      "text": "During conflicts, I focus on finding practical solutions",
+      "dimension": "conflict_collaborative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_035",
+      "text": "I tend to withdraw when disagreements become emotional",
+      "dimension": "conflict_avoidant",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_036",
+      "text": "I believe most conflicts can be resolved through compromise",
+      "dimension": "conflict_collaborative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_037",
+      "text": "I prioritize maintaining harmony over being right",
+      "dimension": "conflict_accommodating",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_038",
+      "text": "I'm willing to argue strongly for what I believe is right",
+      "dimension": "conflict_competing",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_039",
+      "text": "Helping with daily tasks shows love better than any gift",
+      "dimension": "love_language_service",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_040",
+      "text": "A warm hug can instantly improve my mood",
+      "dimension": "love_language_touch",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_041",
+      "text": "Hearing 'I love you' regularly is important to me",
+      "dimension": "love_language_words",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_042",
+      "text": "Undivided attention is the best gift someone can give me",
+      "dimension": "love_language_time",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_043",
+      "text": "I treasure meaningful gifts long after receiving them",
+      "dimension": "love_language_gifts",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_044",
+      "text": "I often doubt my partner's commitment to our relationship",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_anxiety": 0.83,
+        "attachment_avoidance": 0.12
+      }
+    },
+    {
+      "id": "REL_045",
+      "text": "I find it difficult to allow myself to depend on others",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_avoidance": 0.79,
+        "attachment_anxiety": 0.15
+      }
+    },
+    {
+      "id": "REL_046",
+      "text": "When conflicts arise, I try to understand all perspectives",
+      "dimension": "conflict_collaborative",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_047",
+      "text": "I'd rather keep the peace than voice my disagreement",
+      "dimension": "conflict_accommodating",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_048",
+      "text": "I enjoy healthy debates and standing up for my views",
+      "dimension": "conflict_assertive",
+      "response_type": "likert_7",
+      "reverse_scored": false
+    },
+    {
+      "id": "REL_049",
+      "text": "I feel anxious when relationships become too intense",
+      "dimension": "attachment_avoidance",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_avoidance": 0.74,
+        "attachment_anxiety": 0.22
+      }
+    },
+    {
+      "id": "REL_050",
+      "text": "I need constant reassurance that I am loved",
+      "dimension": "attachment_anxiety",
+      "response_type": "likert_7",
+      "reverse_scored": false,
+      "factor_loadings": {
+        "attachment_anxiety": 0.86,
+        "attachment_avoidance": -0.05
+      }
+    }
+  ]
+}

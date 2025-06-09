@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface LikertScaleProps {
@@ -9,6 +9,19 @@ interface LikertScaleProps {
 
 const LikertScale: React.FC<LikertScaleProps> = ({ value, onChange, labels }) => {
   const isMobile = window.innerWidth < 640;
+
+  // Add keyboard shortcuts for number keys
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      const num = parseInt(e.key);
+      if (!isNaN(num) && num >= 1 && num <= labels.length) {
+        onChange(num);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [labels.length, onChange]);
 
   return (
     <div className="space-y-4">

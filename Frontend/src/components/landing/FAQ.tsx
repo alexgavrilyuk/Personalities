@@ -53,13 +53,13 @@ const FAQ: React.FC = () => {
                   <circle cx="150" cy="100" r="30" />
                   <path d="M150 130 L150 200" />
                   <path d="M150 150 L120 170 M150 150 L180 170" />
-                  
+
                   {/* Question marks floating around */}
                   <text x="80" y="60" fontSize="24" fill="#1A1A1A" fontFamily="serif">?</text>
                   <text x="220" y="80" fontSize="20" fill="#1A1A1A" fontFamily="serif">?</text>
                   <text x="60" y="140" fontSize="18" fill="#1A1A1A" fontFamily="serif">?</text>
                   <text x="240" y="160" fontSize="22" fill="#1A1A1A" fontFamily="serif">?</text>
-                  
+
                   {/* Thought bubbles */}
                   <circle cx="190" cy="50" r="8" />
                   <circle cx="210" cy="40" r="6" />
@@ -70,13 +70,13 @@ const FAQ: React.FC = () => {
               {/* Star decorations */}
               <div className="absolute -top-4 right-0">
                 <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M30 5 L32 25 L52 23 L35 30 L52 37 L32 35 L30 55 L28 35 L8 37 L25 30 L8 23 L28 25 Z" 
+                  <path d="M30 5 L32 25 L52 23 L35 30 L52 37 L32 35 L30 55 L28 35 L8 37 L25 30 L8 23 L28 25 Z"
                     fill="#1A1A1A" />
                 </svg>
               </div>
               <div className="absolute bottom-0 left-20">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 2 L21 18 L37 17 L22 20 L37 23 L21 22 L20 38 L19 22 L3 23 L18 20 L3 17 L19 18 Z" 
+                  <path d="M20 2 L21 18 L37 17 L22 20 L37 23 L21 22 L20 38 L19 22 L3 23 L18 20 L3 17 L19 18 Z"
                     stroke="#1A1A1A" strokeWidth="1.5" />
                 </svg>
               </div>
@@ -120,7 +120,7 @@ const FAQ: React.FC = () => {
                     </svg>
                   </motion.div>
                 </button>
-                
+
                 <AnimatePresence>
                   {openIndex === index && (
                     <motion.div
